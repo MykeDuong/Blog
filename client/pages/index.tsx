@@ -7,7 +7,7 @@ import Header from '../components/Header/Header';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.app}>
+    <div className={styles.app} >
       <NavBar />
       <Header />
   </div>
