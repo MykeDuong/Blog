@@ -17,7 +17,7 @@ const NavBar: NextComponentType = () => {
           <Image src={images.logo} alt='logo' />
       </div>
       <ul className={styles.app__navbarLinks}>
-        { ['home', 'about', 'work', 'skills', 'contact'].map((item) => (
+        { ['home', 'portfolio', 'tag'].map((item) => (
           <li className={`${globalStyles.pText} ${globalStyles.app__flex}`} key={`link-${item}`} >
             <div />
             <a href={`#${item}`}>{item}</a>
