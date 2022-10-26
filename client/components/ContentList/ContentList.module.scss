@@ -24,6 +24,9 @@
   padding-left: 4rem;
 
   li {
-    
+    a {
+      color: var(--gray-color);
+      text-decoration: none;
+    }
   }
 }
