@@ -1,0 +1,29 @@
+.app__contentList {
+  width: 35%;
+  border-left: solid;
+  border-color: var(--lightGray-color);
+  border-width: 2px;
+  padding-left: 2rem;
+}
+
+.app__contentListTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--gray-color);
+  text-transform: uppercase;
+  padding-top: 3px;
+}
+
+.app__contentListItems {
+  padding-left: 4rem;
+
+  li {
+    
+  }
+}

@@ -1,9 +1,5 @@
 .app__homeMain {
+  display: flex;
   flex-direction: row;
+  width: 100%;
 }
-
-.app__homeMainContents {
-  flex-direction: column;
-  width: 70%;
-}
-
