@@ -32,21 +32,46 @@ export default {
       },
     },
     {
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime',
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',
       of: [{type: 'reference', to: {type: 'category'}}],
     },
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [
+        {
+        type: 'reference',
+        to: [
+          {type: 'tag'}
+        ]
+        }
+      ]
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
     },
+    {
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [
+        {
+        title: 'section',
+        type: 'section',
+        lists: [],
+        }
+      ]
+    }
   ],
 
   preview: {

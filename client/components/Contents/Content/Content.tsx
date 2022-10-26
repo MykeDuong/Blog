@@ -1,8 +1,17 @@
 import { NextComponentType } from 'next'
 import React from 'react'
 
-export const Content: NextComponentType = () => {
+interface Props {
+  content: any;
+}
+
+const Content: NextComponentType<{}, {}, Props> = ({ content }) => {
+  
   return (
-    <div>Content</div>
+    <div>
+
+    </div>
   )
 }
+
+export default Content;

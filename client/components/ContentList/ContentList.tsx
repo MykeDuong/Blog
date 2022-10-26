@@ -11,7 +11,9 @@ interface Props {
   contents: PostInterface[];
 }
 
-const Contents: NextComponentType<{}, {}, Props> = (contents) => {
+const Contents: NextComponentType<{}, {}, Props> = ({ contents }) => {
+
+  console.log(contents);
 
   return (
     <div className={ styles.app__contentList }>
@@ -19,7 +21,11 @@ const Contents: NextComponentType<{}, {}, Props> = (contents) => {
         <MdOutlineContentPaste color={variables.grayColor}/><p className={`${globalStyles.pText} ${styles.title}`}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contents</p>
       </div>
       <ol className={styles.app__contentListItems}>
-        <li>asdf</li>
+        {contents?.map((content) => (
+          <li key={content._id} >
+            <a href={`#${content.slug.current}`}>{content.title}</a>
+          </li>
+        ))}
       </ol>
     </div>
   )

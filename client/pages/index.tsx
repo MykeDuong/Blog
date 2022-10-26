@@ -23,8 +23,6 @@ const Home: NextPage = () => {
         setPosts(data);
       });
   }, []);
-  
-  console.log(posts);
 
   return (
     <div className={globalStyles.app} >
