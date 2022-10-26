@@ -1,33 +1,26 @@
 import { NextComponentType } from 'next';
-import React, { useState, useEffect } from 'react';
+import { MdOutlineContentPaste } from 'react-icons/md';
 
-import client from '../../client';
+import PostInterface from '../../interfaces/PostInterface';
+
+import styles from './ContentList.module.scss';
+import globalStyles from '../../styles/Home.module.scss';
+import variables from '../../styles/variables.module.scss';
 
 interface Props {
-  contentType: string;
+  contents: PostInterface[];
 }
 
-const Contents: NextComponentType<Props> = ({ contentType }) => {
-  const [contents, setContents] = useState([]);
-
-  console.log(contentType);
-
-  useEffect(() => {
-    const contentQuery = `*[_type == "${contentType}"]`;
-
-    console.log(contentQuery);
-
-    client.fetch(contentQuery)
-      .then((data) => {
-        setContents(data);
-      });
-  }, []);
-
-  console.log(contents)
+const Contents: NextComponentType<{}, {}, Props> = (contents) => {
 
   return (
-    <div>
-      <p>Contents</p>
+    <div className={ styles.app__contentList }>
+      <div className={styles.app__contentListTitle} >
+        <MdOutlineContentPaste color={variables.grayColor}/><p className={`${globalStyles.pText} ${styles.title}`}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contents</p>
+      </div>
+      <ol className={styles.app__contentListItems}>
+        <li>asdf</li>
+      </ol>
     </div>
   )
 }
