@@ -1,0 +1,19 @@
+.app__content {
+  border-bottom: solid;
+  border-color: var(--veryLightGray-color);
+  border-width: 1px;
+  margin-bottom: 20px;
+}
+
+.contentTitle {
+  font-size: 2rem;
+  color: var(--grayBlack-color);
+  margin-bottom: 0.5rem;
+}
+
+.info {
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: var(--gray-color);
+}
