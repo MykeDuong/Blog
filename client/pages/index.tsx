@@ -16,7 +16,10 @@ const Home: NextPage = () => {
   const [posts, setPosts] = useState([] as PostInterface[]);
 
   useEffect(() => {
-    const contentQuery = `*[_type == "post"]`;
+    const contentQuery = `*[_type == "post"]{
+      ...,
+      author->
+    }`;
 
     client.fetch(contentQuery)
       .then((data) => {

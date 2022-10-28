@@ -11,10 +11,9 @@ interface Props {
 }
 
 const Contents: NextComponentType<{}, {}, Props> = ({ contents }) => {
-  console.log(contents);
   return (
     <div className = { styles.app__contents }>
-      {contents?.map((content) => <Content content={ content }/>)}
+      {contents?.map((content) => <Content content={ content } key={ content._id }/>)}
     </div>
   )
 }
