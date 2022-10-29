@@ -1,0 +1,19 @@
+.app__footer {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.socialMediaCircle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--black-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyright {
+  color: var(--gray-color);
+}
