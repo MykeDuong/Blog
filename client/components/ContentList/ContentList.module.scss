@@ -1,9 +1,12 @@
 .app__contentList {
-  width: 35%;
   border-left: solid;
-  border-color: var(--lightGray-color);
-  border-width: 2px;
+  border-color: var(--veryLightGray-color);
+  border-width: 1px;
   padding-left: 2rem;
+  padding-bottom: 2rem;
+  position: -webkit-sticky; /* Safari & IE */
+  position: sticky;
+  top: 100px;
 }
 
 .app__contentListTitle {

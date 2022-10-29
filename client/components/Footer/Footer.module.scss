@@ -1,18 +1,47 @@
 .app__footer {
   margin-top: 5rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+}
+
+.contact {
+  display: flex;
+  flex-directions: row;
+  column-gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .socialMediaCircle {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
+  margin: 0.25rem 0;
+  background-color: var(--grayBlack-color);
+  border-color: var(--grayBlack-color);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--white-color);
+  }
+  
+  &:hover {
+    background-color: var(--white-color);
+    border: 1px solid var(--lightGray-color);
+    svg {
+      color: var(--gray-color);
+    }
+  }
 }
 
 .copyright {
   color: var(--gray-color);
+  margin-bottom: 5rem;
 }

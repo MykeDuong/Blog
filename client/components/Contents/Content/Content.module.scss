@@ -2,13 +2,18 @@
   border-bottom: solid;
   border-color: var(--veryLightGray-color);
   border-width: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+.app__contentMainImage {
+  width: 100%;
 }
 
 .contentTitle {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--grayBlack-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .info {
@@ -16,4 +21,20 @@
   margin-top: 20px;
   margin-bottom: 20px;
   color: var(--gray-color);
+  text-align: center;
+  text-transform: uppercase;
+  
+}
+
+.body {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.app__contentFooter {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
