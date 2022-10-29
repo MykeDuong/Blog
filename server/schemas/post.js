@@ -73,7 +73,15 @@ export default {
       ]
     }
   ],
-
+  orderings: [
+    {
+      title: 'Published Date, Old',
+      name: 'publishedAtAsc',
+      by: [
+        {field: 'publishedAt', direction: 'asc'}
+      ]
+    },
+  ],
   preview: {
     select: {
       title: 'title',

@@ -20,13 +20,15 @@ const Home: NextPage = () => {
     const contentQuery = `*[_type == "post"]{
       ...,
       author->
-    }`;
+    } | order(publishedAt desc)`;
 
     client.fetch(contentQuery)
       .then((data) => {
         setPosts(data);
       });
   }, []);
+
+  console.log(posts);
 
   return (
     <div className={globalStyles.app} >
