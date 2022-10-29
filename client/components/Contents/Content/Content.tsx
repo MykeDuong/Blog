@@ -13,7 +13,6 @@ interface Props {
 }
 
 const Content: NextComponentType<{}, {}, Props> = ({ content }) => {
-  console.log(content);
   return (
     <div className={styles.app__content}>
       <img src={content.mainImageUrl} alt={`${content.title} main image`} className={styles.app__contentMainImage} />
