@@ -19,6 +19,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     const contentQuery = `*[_type == "post"]{
       ...,
+      "mainImageUrl": mainImage.asset->url,
       author->
     } | order(publishedAt desc)`;
 
@@ -28,7 +29,6 @@ const Home: NextPage = () => {
       });
   }, []);
 
-  console.log(posts);
 
   return (
     <div className={globalStyles.app} >
@@ -36,7 +36,9 @@ const Home: NextPage = () => {
       <Header />
       <div className={styles.app__homeMain}>
         <Contents contents={posts} />
-        <ContentList contents={posts} />
+        <div className={styles.app__homeMainAdditionalInfo}>
+          <ContentList contents={posts} />
+        </div>
       </div>
       <Footer />
     </div>

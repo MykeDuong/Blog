@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import Image from 'next/future/image';
@@ -8,11 +8,35 @@ import styles from './NavBar.module.scss';
 import globalStyles from '../../styles/Home.module.scss'
 import { NextComponentType } from 'next';
 
+function useScrollDirection() {
+  const [scrollDirection, setScrollDirection] = useState("up");
+
+  useEffect(() => {
+    let lastScrollY = window.pageYOffset;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.pageYOffset;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      if (direction !== scrollDirection && (scrollY - lastScrollY > 20 || scrollY - lastScrollY < -20)) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+    };
+    window.addEventListener("scroll", updateScrollDirection); // add event listener
+    return () => {
+      window.removeEventListener("scroll", updateScrollDirection); // clean up
+    }
+  }, [scrollDirection]);
+
+  return scrollDirection;
+};
+
 const NavBar: NextComponentType = () => {
   const [toggle, setToggle] = useState(false);
+  const scrollDirection = useScrollDirection()
 
   return (
-    <nav className={styles.app__navbar}>
+    <nav className={`${styles.app__navbar} ${ scrollDirection === "down" ? styles.hide : "show"}`}>
       <div className={styles.app__navbarLogo}>
           <Image src={images.logo} alt='logo' />
       </div>
