@@ -9,6 +9,7 @@ import NavBar from '../components/NavBar/NavBar';
 import Header from '../components/Header/Header';
 import Contents from '../components/Contents/Contents';
 import ContentList from '../components/ContentList/ContentList';
+import Footer from '../components/Footer/Footer';
 
 import PostInterface from '../interfaces/PostInterface';
 
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
         <Contents contents={posts} />
         <ContentList contents={posts} />
       </div>
+      <Footer />
     </div>
   )
 }
