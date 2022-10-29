@@ -12,20 +12,6 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'text',
-    },
-    {
-      name: 'posts',
-      title: 'Posts',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {type: 'post'}
-          ]
-        }
-      ]
-
-    }
+    }, 
   ],
 }

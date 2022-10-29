@@ -16,7 +16,7 @@ interface Props {
 
 const ShortenedPortableTextComponent = {
   block: {
-    normal: ({ value }: Text) => {console.log(value); return <p className={styles.shortenedText}>{value.children[0].text}</p>},
+    normal: ({ value }: Text) => <p className={styles.shortenedText}>{value.children[0].text}</p>,
   }
 }
 

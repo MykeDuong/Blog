@@ -11,7 +11,6 @@ interface Props {
 }
 
 const Content: NextComponentType<{}, {}, Props> = ({ content }) => {
-  console.log(content);
   return (
     <div className={styles.app__content}>
       <h1 className={styles.contentTitle}>{content.title}</h1>
