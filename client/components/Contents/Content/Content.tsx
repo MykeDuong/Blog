@@ -1,23 +1,25 @@
 import { NextComponentType } from 'next'
 import React from 'react'
+import Image from 'next/future/image';
 
-import PostInterface from '../../../interfaces/PostInterface/PostInterface';
+import PostInterface from '../../../interfaces/PostInterface';
 import Button from '../../Button/Button';
 import ShortenedPortableText from '../../PortableText/ShortenedPortableText';
 import styles from './Content.module.scss';
 
-const Content: NextComponentType<{}, {}, PostInterface> = ({ content }) => {
-  console.log(content);
+const Content: NextComponentType<{}, {}, {content: PostInterface}> = ({ content }) => {
   return (
     <div className={styles.app__content}>
-      <img src={content.mainImageUrl} alt={`${content.title} main image`} className={styles.app__contentMainImage} />
+      <div className={styles.imageBox}>
+        <Image src={content.mainImageUrl} alt={`${content.title} main image`} className={styles.app__contentMainImage} fill />
+      </div>
       <p className={styles.info}>{new Date(content._createdAt).toLocaleDateString()}  &nbsp; •  &nbsp; {content.author.name}</p>
       <h1 className={styles.contentTitle}>{content.title}</h1>
       <div className={styles.body}>
         <ShortenedPortableText value={content.body} />
       </div>
       <div className={styles.tags}>
-        {content?.tags?.map(tag => (
+        {content?.tags?.map((tag: { title: string; }) => (
           <Button type="tag" text={tag.title} key={`key of ${tag.title}`} />
         ))}
       </div>

@@ -14,12 +14,13 @@ import ContentList from '../components/ContentList/ContentList';
 import Footer from '../components/Footer/Footer';
 
 import PostInterface from '../interfaces/PostInterface';
+import { AuthorInterface } from '../interfaces/AuthorInterface';
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = ({ author, posts }) => {
   return (
     <div className={globalStyles.app} >
       <NavBar />
-      <Header />
+      <Header title="" subtitle="" mainImage="" />
       <Introduction author={author}/>
       <div className={styles.app__homeMain}>
         <Contents contents={posts} />
@@ -33,10 +34,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = ({ au
 }
 
 export const getStaticProps: GetStaticProps = async() => {
-  const authors = await client.fetch(`*[_type == "author"]{..., "imageUrl": image.asset->url}`)
+  const authors: AuthorInterface[] = await client.fetch(`*[_type == "author"]{..., "imageUrl": image.asset->url}`)
   const author = authors[0];
 
-  const posts = await client.fetch(`*[_type == "post"]{
+  const posts: PostInterface[] = await client.fetch(`*[_type == "post"]{
     ...,
     tags[]->,
     "mainImageUrl": mainImage.asset->url,
