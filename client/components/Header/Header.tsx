@@ -4,7 +4,7 @@ import Image from 'next/future/image';
 
 import styles from "./Header.module.scss";
 import globalStyles from '../../styles/Home.module.scss';
-import { url } from 'inspector';
+import { images } from '../../constants';
 
 interface Props {
   title: string;
@@ -17,7 +17,7 @@ const Header: NextComponentType<{}, {}, Props> = ({ title, subtitle, mainImage }
   return (
     <div>
       <div className={`${styles.app__header} ${globalStyles.app__flex}`} >
-        <Image className={styles.app__headerImage} src={mainImage !== '' ? mainImage : '/public/assets/bgIMG.jpeg' } alt="main image" fill />
+        <Image className={styles.app__headerImage} src={mainImage !== '' ? mainImage : images.bgIMG } alt="main image" fill />
         <h1 className={styles.title}>{title !== "" ? title : "minh duong's blog"}</h1>
         <p className={`${styles.pText}`}>{subtitle !== "" ? subtitle : "Coding thoughts and experiences"}</p>
       </div>
