@@ -1,5 +1,11 @@
+interface TagInterface {
+  title: string;
+}
+
+
 export default interface PostInterface {
   title: string;
+  tags: TagInterface[];
   slug: {
     current: string;
     _type: string;

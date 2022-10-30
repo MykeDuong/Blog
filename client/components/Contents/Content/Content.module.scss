@@ -23,7 +23,6 @@
   color: var(--gray-color);
   text-align: center;
   text-transform: uppercase;
-  
 }
 
 .body {
@@ -31,7 +30,15 @@
   padding-right: 20px;
 }
 
+.tags {
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .app__contentFooter {
+  padding-left: 20px;
+  padding-right: 20px;
   margin-top: 30px;
   margin-bottom: 30px;
   display: flex;
