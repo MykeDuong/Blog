@@ -2,7 +2,6 @@ interface TagInterface {
   title: string;
 }
 
-
 export default interface PostInterface {
   title: string;
   tags: TagInterface[];
@@ -10,9 +9,10 @@ export default interface PostInterface {
     current: string;
     _type: string;
   };
+  mainImageUrl: string;
+  body: any;
   author: {
-    _ref: string;
-    _type: string;
+    name: string;
   };
   _createdAt: Date;
   _updatedAt: Date;
