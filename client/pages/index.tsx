@@ -15,23 +15,7 @@ import Footer from '../components/Footer/Footer';
 
 import PostInterface from '../interfaces/PostInterface';
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = ({ author }) => {
-  const [posts, setPosts] = useState([] as PostInterface[]);
-
-  useEffect(() => {
-    const contentQuery = `*[_type == "post"]{
-      ...,
-      "mainImageUrl": mainImage.asset->url,
-      author->
-    } | order(publishedAt desc)`;
-
-    client.fetch(contentQuery)
-      .then((data) => {
-        setPosts(data);
-      });
-  }, []);
-
-
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = ({ author, posts }) => {
   return (
     <div className={globalStyles.app} >
       <NavBar />
@@ -52,9 +36,19 @@ export const getStaticProps: GetStaticProps = async() => {
   const authors = await client.fetch(`*[_type == "author"]{..., "imageUrl": image.asset->url}`)
   const author = authors[0];
 
+  const posts = await client.fetch(`*[_type == "post"]{
+    ...,
+    tags[]->,
+    "mainImageUrl": mainImage.asset->url,
+    author->
+  } | order(publishedAt desc)`)
+
+
+
   return {
     props: {
       author,
+      posts
     },
   }
 }

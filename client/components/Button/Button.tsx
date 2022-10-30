@@ -4,14 +4,13 @@ import { NextComponentType } from 'next'
 import styles from './Button.module.scss'
 
 interface Props {
-  width: number;
-  height: number;
   text: string;
+  type: string;
 }
 
-const Button: NextComponentType<{}, {}, Props> = ({ width, height, text }) => {
+const Button: NextComponentType<{}, {}, Props> = ({ type, text }) => {
   return (
-    <button style={{ width, height }} className={styles.button}>
+    <button className={`${styles.button} ${type === "tag" ? styles.tag : styles.normal}`}>
       <p className={styles.text}>{text}</p>
     </button>
   )

@@ -1,12 +1,18 @@
 .app__introduction {
   margin-top: 20px;
-  margin-bottom: 100px;
-  margin-left: 20%;
+  margin-bottom: 50px;
+  margin-left: 18%;
+  margin-right: 18%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid;
+  padding-bottom: 40px;
+  border-color: var(--veryLightGray-color);
+  border-width: 1px;
 }
 
-.app__introductionTextBox {
+.app__introductionImageBox {
   height: 15rem;
   width: 15rem;
   border-radius: 50%;
@@ -21,4 +27,25 @@
       z-index: 1;
   }
 
+}
+
+.app__introductionTextBox {
+  width: 75%;
+  padding: 30px 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+.welcome {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.introductionText {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+
+  a {
+    text-decoration: none;
+  }
 }
