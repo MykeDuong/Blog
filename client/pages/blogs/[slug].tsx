@@ -9,9 +9,11 @@ import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
 
 import PostInterface from '../../interfaces/PostInterface'
+import Section from '../../components/Section/Section';
 
 import globalStyles from '../../styles/Home.module.scss';
 import styles from './Blog.module.scss';
+
 
 const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }) => {
   if (!post) {
@@ -26,6 +28,10 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
     <div className={globalStyles.app} >
       <NavBar />
       <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} />
+      <div className={styles.app__blogBody}>
+        <Section title='' body={post.body} />
+        {post.sections.map((section, index) => <Section title={section.sectionName} body={section.body} key={`section ${index}`} />)}
+      </div>
       <Footer />
     </div>
   )
@@ -41,7 +47,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  // It's important to default the slug so that it doesn't return "undefined"
   const slug = context.params ? context.params.slug : '';
   const post: PostInterface[] | undefined = await client.fetch(`*[_type == "post" && slug.current == $slug]{
     ...,

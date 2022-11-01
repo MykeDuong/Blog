@@ -13,7 +13,7 @@ interface Props {
 const Contents: NextComponentType<{}, {}, Props> = ({ contents }) => {
   return (
     <div className = { styles.app__contents }>
-      {contents?.map((content) => <Content content={content} key={ content._id }/>)}
+      {contents?.map((content) => <Content content={content} shortened={true} key={ content._id }/>)}
     </div>
   )
 }
