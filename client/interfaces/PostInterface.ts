@@ -2,6 +2,11 @@ interface TagInterface {
   title: string;
 }
 
+interface SectionInterface {
+  sectionName: string;
+  body: any[]
+}
+
 export default interface PostInterface {
   title: string;
   tags: TagInterface[];
@@ -14,6 +19,7 @@ export default interface PostInterface {
   author: {
     name: string;
   };
+  sections: SectionInterface[];
   _createdAt: Date;
   _updatedAt: Date;
   _id: string;

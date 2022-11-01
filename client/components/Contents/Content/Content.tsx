@@ -4,10 +4,16 @@ import Image from 'next/future/image';
 
 import PostInterface from '../../../interfaces/PostInterface';
 import Button from '../../Button/Button';
-import ShortenedPortableText from '../../PortableText/ShortenedPortableText';
+import CustomPortableText from '../../ShortenedPortableText/ShortenedPortableText';
 import styles from './Content.module.scss';
 
-const Content: NextComponentType<{}, {}, {content: PostInterface}> = ({ content }) => {
+interface Props {
+  content: PostInterface;
+  shortened: boolean;
+}
+
+const Content: NextComponentType<{}, {}, Props> = ({ content, shortened }) => {
+  console.log(content);
   return (
     <div className={styles.app__content}>
       <div className={styles.imageBox}>
@@ -16,15 +22,15 @@ const Content: NextComponentType<{}, {}, {content: PostInterface}> = ({ content 
       <p className={styles.info}>{new Date(content._createdAt).toLocaleDateString()}  &nbsp; •  &nbsp; {content.author.name}</p>
       <h1 className={styles.contentTitle}>{content.title}</h1>
       <div className={styles.body}>
-        <ShortenedPortableText value={content.body} />
+        <CustomPortableText value={content.body} shortened={shortened} />
       </div>
       <div className={styles.tags}>
         {content?.tags?.map((tag: { title: string; }) => (
-          <Button type="tag" text={tag.title} key={`key of ${tag.title}`} />
+          <Button type="tag" text={tag.title} key={`key of ${tag.title}`} link="" />
         ))}
       </div>
       <div className={styles.app__contentFooter}>
-        <Button text="Continue Reading" type="normal" />
+        <Button text="Continue Reading" type="normal" link={`/blogs/${content.slug.current}`} />
       </div>
     </div>
   )

@@ -7,6 +7,7 @@ import { images } from '../../constants';
 import styles from './NavBar.module.scss';
 import globalStyles from '../../styles/Home.module.scss'
 import { NextComponentType } from 'next';
+import Link from 'next/link';
 
 function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -38,7 +39,7 @@ const NavBar: NextComponentType = () => {
   return (
     <nav className={`${styles.app__navbar} ${ scrollDirection === "down" ? styles.hide : "show"}`}>
       <div className={styles.app__navbarLogo}>
-          <Image src={images.logo} alt='logo' />
+        <Link href='/'><div><Image src={images.logo} alt='logo' /></div></Link>
       </div>
       <ul className={styles.app__navbarLinks}>
         { ['home', 'portfolio', 'tag'].map((item) => (
