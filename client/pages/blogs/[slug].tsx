@@ -3,7 +3,6 @@ import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType, NextPage } fro
 
 import client from '../../client'
 import ContentList from '../../components/ContentList/ContentList'
-import Contents from '../../components/Contents/Contents'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
@@ -13,6 +12,7 @@ import Section from '../../components/Section/Section';
 
 import globalStyles from '../../styles/Home.module.scss';
 import styles from './Blog.module.scss';
+import { MdStayCurrentLandscape } from 'react-icons/md'
 
 
 const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }) => {
@@ -29,8 +29,13 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
       <NavBar />
       <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} />
       <div className={styles.app__blogBody}>
-        <Section title='' body={post.body} />
-        {post.sections.map((section, index) => <Section title={section.sectionName} body={section.body} key={`section ${index}`} />)}
+        <div className={styles.app__blogBodyMain}>
+          <Section title='' body={post.body} />
+          {post.sections.map((section: {sectionName: string, body: any}, index: number) => <Section title={section.sectionName} body={section.body} key={`section ${index}`} />)}
+        </div>
+        <div className={styles.app__blogBodyList}>
+          <ContentList contents={post.sections} />
+        </div>
       </div>
       <Footer />
     </div>
