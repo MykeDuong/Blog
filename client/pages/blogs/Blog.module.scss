@@ -2,5 +2,15 @@
   margin-top: 20px;
   margin-left: 18%;
   margin-right: 18%;
+  display: flex;
+  flex-direction: row;
 }
 
+.app__blogBodyMain {
+  width: 70%;
+  padding-right: 50px;
+}
+
+.app__blogBodyList {
+
+}

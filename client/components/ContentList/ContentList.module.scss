@@ -25,10 +25,11 @@
 
 .app__contentListItems {
   padding-left: 4rem;
+  color: var(--grayBlack-color);
 
   li {
     a {
-      color: var(--gray-color);
+      color: var(--grayBlack-color);
       text-decoration: none;
     }
   }
