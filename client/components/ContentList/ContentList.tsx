@@ -20,7 +20,7 @@ const Contents: NextComponentType<{}, {}, Props> = ({ contents }) => {
       </div>
       <ol className={styles.app__contentListItems}>
         {contents?.map((content) => (
-          <li key={content._id} >
+          <li key={`contentList ${content.title}`} >
             <a href={`#${content.slug.current}`}>{content.title}</a>
           </li>
         ))}
