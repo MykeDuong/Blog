@@ -8,11 +8,13 @@
   color: var(--grayBlack-color);
 
   h2 {
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   p {
     font-size: 1.1rem;
+    line-height: 1.8rem;
 
     a {
       text-decoration: none;
@@ -21,6 +23,7 @@
 
   ul {
     margin-left: 30px;
+    
     color: var(--gray-color);
     font-size: 1.1rem;
   }
