@@ -7,6 +7,7 @@ import styles from './Section.module.scss';
 interface Props {
   title: string;
   body: any[];
+  slug: string;
 }
 
 const NormalComponent: PortableTextBlockComponent = ({children}) => {
@@ -39,9 +40,9 @@ const PortableTextComponent = {
   }
 }
 
-const Section: NextComponentType<{}, {}, Props> = ({ title, body }) => {
+const Section: NextComponentType<{}, {}, Props> = ({ title, body, slug }) => {
   return (
-    <div>
+    <div id={slug} className={styles.app__section}>
       <h1 className={styles.app__sectionHeader}>{title}</h1>
       <div className={styles.app__sectionBody}>
         <PortableText value={ body } components={ PortableTextComponent } />

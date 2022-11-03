@@ -9,20 +9,19 @@ import styles from './Content.module.scss';
 
 interface Props {
   content: PostInterface;
-  shortened: boolean;
 }
 
-const Content: NextComponentType<{}, {}, Props> = ({ content, shortened }) => {
+const Content: NextComponentType<{}, {}, Props> = ({ content }) => {
   console.log(content);
   return (
-    <div className={styles.app__content}>
+    <div className={styles.app__content} id={content.slug.current}>
       <div className={styles.imageBox}>
         <Image src={content.mainImageUrl} alt={`${content.title} main image`} className={styles.app__contentMainImage} fill />
       </div>
       <p className={styles.info}>{new Date(content._createdAt).toLocaleDateString()}  &nbsp; •  &nbsp; {content.author.name}</p>
       <h1 className={styles.contentTitle}>{content.title}</h1>
       <div className={styles.body}>
-        <CustomPortableText value={content.body} shortened={shortened} />
+        <CustomPortableText value={content.body}/>
       </div>
       <div className={styles.tags}>
         {content?.tags?.map((tag: { title: string; }) => (
