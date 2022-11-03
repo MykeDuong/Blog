@@ -30,8 +30,8 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
       <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} />
       <div className={styles.app__blogBody}>
         <div className={styles.app__blogBodyMain}>
-          <Section title='' body={post.body} />
-          {post.sections.map((section: {title: string, body: any}, index: number) => <Section title={section.title} body={section.body} key={`section ${index}`} />)}
+          <Section title='' body={post.body} slug="Introduction" />
+          {post.sections.map((section: PostInterface, index: number) => <Section title={section.title} body={section.body} slug={section.slug.current} key={`section ${index}`} />)}
         </div>
         <div className={styles.app__blogBodyList}>
           <ContentList contents={post.sections} />
