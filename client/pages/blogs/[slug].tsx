@@ -12,8 +12,6 @@ import Section from '../../components/Section/Section';
 
 import globalStyles from '../../styles/Home.module.scss';
 import styles from './Blog.module.scss';
-import { MdStayCurrentLandscape } from 'react-icons/md'
-
 
 const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }) => {
   if (!post) {
@@ -22,8 +20,6 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
     )
   }  
 
-  console.log(post);
-
   return (    
     <div className={globalStyles.app} >
       <NavBar />
@@ -31,7 +27,7 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
       <div className={styles.app__blogBody}>
         <div className={styles.app__blogBodyMain}>
           <Section title='' body={post.body} slug="Introduction" />
-          {post.sections.map((section: PostInterface, index: number) => <Section title={section.title} body={section.body} slug={section.slug.current} key={`section ${index}`} />)}
+          {post.sections ? post.sections.map((section: PostInterface, index: number) => <Section title={section.title} body={section.body} slug={section.slug.current} key={`section ${index}`} />): <></>}
         </div>
         <div className={styles.app__blogBodyList}>
           <ContentList contents={post.sections} />
