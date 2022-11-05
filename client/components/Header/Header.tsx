@@ -9,15 +9,19 @@ import { images } from '../../constants';
 interface Props {
   title: string;
   subtitle: string;
+  mainPage: boolean;
   mainImage: string;
 }
 
-const Header: NextComponentType<{}, {}, Props> = ({ title, subtitle, mainImage }) => {
-  console.log(title);
+const Header: NextComponentType<{}, {}, Props> = ({ title, subtitle, mainPage=false, mainImage }) => {
+  console.log(`images.${mainImage}`);
   return (
     <div>
       <div className={`${styles.app__header} ${globalStyles.app__flex}`} >
-        <Image className={styles.app__headerImage} src={mainImage !== '' ? mainImage : images.bgIMG } alt="main image" fill />
+        {mainPage ?
+          <Image className={styles.app__headerImage} src={mainImage !== '' ? images[`${mainImage}` as keyof typeof images] : images.bgIMG } alt="main image" fill /> :
+          <Image className={styles.app__headerImage} src={mainImage !== '' ? mainImage : images.bgIMG } alt="main image" fill />
+        }
         <h1 className={styles.title}>{title !== "" ? title : "minh duong's blog"}</h1>
         <p className={`${styles.pText}`}>{subtitle !== "" ? subtitle : "Coding thoughts and experiences"}</p>
       </div>
