@@ -1,3 +1,41 @@
-.app__tag {
+.app__tagMain {
+  margin-top: 50px;  
+  margin-left: 25%;
+  margin-right: 25%;
 
+}
+
+.app__tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.app__tagContent {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--lightGray-color);
+}
+
+.tagTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+
+  * {
+    font-size: 1.3rem;
+  }  
+}
+
+.postTitle {
+  color: var(--gray-color);
+
+  * {
+    text-decoration: none;
+    color: var(--gray-color);
+
+  }
 }
