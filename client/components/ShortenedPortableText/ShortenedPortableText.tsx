@@ -1,4 +1,4 @@
-import { PortableText } from '@portabletext/react';
+import { PortableText, PortableTextBlockComponent } from '@portabletext/react';
 import React from 'react';
 
 import styles from './ShortenedPortableText.module.scss';
@@ -8,9 +8,13 @@ interface Props {
   value: any[];
 }
 
+const NormalComponent: PortableTextBlockComponent = ({children}) => {
+  return <p className={styles.shortenedText}>{children}</p>
+}
+
 const PortableTextComponent = {
   block: {
-    normal: ({ children }: { children: any[] }) => <p className={styles.shortenedText}>{ children }</p>,
+    normal: NormalComponent
   }
 }
 

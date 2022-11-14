@@ -7,6 +7,14 @@
   position: -webkit-sticky; /* Safari & IE */
   position: sticky;
   top: 100px;
+  
+  .title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--gray-color);
+    text-transform: uppercase;
+    padding-top: 3px;
+  }
 }
 
 .app__contentListTitle {
@@ -15,13 +23,6 @@
   align-items: center;
 }
 
-.title {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--gray-color);
-  text-transform: uppercase;
-  padding-top: 3px;
-}
 
 .app__contentListItems {
   padding-left: 4rem;
