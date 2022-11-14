@@ -10,9 +10,9 @@ const Footer: NextComponentType = () => {
   return (
     <div className={styles.app__footer}>
       <div className={styles.contact}>
-        <div className={styles.socialMediaCircle}><RiGithubFill /></div>
-        <div className={styles.socialMediaCircle}><RiLinkedinFill /></div>
-        <div className={styles.socialMediaCircle}><RiFacebookFill /></div>
+        <a target="_blank" href="https://github.com/MykeDuong" rel="noopener noreferrer" className={styles.socialMediaCircle}><RiGithubFill /></a>
+        <a target="_blank" href="https://www.linkedin.com/in/mykeduong/" rel="noopener noreferrer" className={styles.socialMediaCircle}><RiLinkedinFill /></a>
+        <a target="_blank" href="https://www.facebook.com/hongminh4402" rel="noopener noreferrer" className={styles.socialMediaCircle}><RiFacebookFill /></a>
       </div>
       <p className={styles.copyright}>Copyright @Minh Duong 2022</p>
     </div>
