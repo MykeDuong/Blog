@@ -23,7 +23,7 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
   return (    
     <div className={globalStyles.app} >
       <NavBar />
-      <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} />
+      <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} mainPage={false} />
       <div className={styles.app__blogBody}>
         <div className={styles.app__blogBodyMain}>
           <Section title='' body={post.body} slug="Introduction" />
