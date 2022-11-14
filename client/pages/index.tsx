@@ -20,7 +20,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = ({ au
   return (
     <div className={globalStyles.app} >
       <NavBar />
-      <Header title="" subtitle="" mainImage="" />
+      <Header title="" subtitle="" mainImage="" mainPage={false} />
       <Introduction author={author}/>
       <div className={styles.app__homeMain}>
         <Contents contents={posts} />
