@@ -10,12 +10,12 @@ interface PropsInterface {
 
 const NavigationDots: NextComponentType<{}, {}, PropsInterface> = ({ active }) => {
   return (
-    <div className='app__navigation'>
+    <div className={styles.app__navigation}>
         { ['home', 'about', 'work', 'skills', 'contact'].map((item, index) => (
             <a
                 href={`#${item}`}
                 key={item + index}
-                className="app__navigation-dot"
+                className={styles.app__navigationDot}
                 style={active === item ? { backgroundColor: '#313BAC' } : { }}
             />
         )) }
