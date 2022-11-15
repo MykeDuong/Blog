@@ -12,6 +12,13 @@ import section from './section'
 import author from './author'
 import tag from './tag'
 
+// Portfolio
+import contact from './contact'
+import experiences from './experiences'
+import skills from './skills'
+import workExperience from './workExperience'
+import works from './works'
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -29,5 +36,11 @@ export default createSchema({
     section,
     tag,
     blockContent,
+    // for portfolio
+    contact,
+    experiences,
+    skills,
+    workExperience,
+    works,
   ]),
 })
