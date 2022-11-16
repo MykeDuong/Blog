@@ -11,7 +11,7 @@ interface PropsInterface {
   classNames: string;
 }
 
-const AppWrap: NextComponentType<{}, {}, PropsInterface> = ({ Component, idName, classNames} ) =>{
+const PortfolioWrap: NextComponentType<{}, {}, PropsInterface> = ({ Component, idName, classNames} ) => {
   return (
     <div id={idName} className={`${globalStyles.app__container} ${classNames}`}>
       <StickySocialMedia />
@@ -30,4 +30,4 @@ const AppWrap: NextComponentType<{}, {}, PropsInterface> = ({ Component, idName,
 
 }
 
-export default AppWrap;
+export default PortfolioWrap;
