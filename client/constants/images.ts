@@ -5,6 +5,7 @@ import react from '../assets/react.png'
 import flutter from '../assets/flutter.png';
 import node from '../assets/node.png';
 import circle from '../assets/circle.svg';
+import portfolioIMG from '../assets/portfolioIMG.jpeg'
 
 export default {
   logo,
@@ -14,4 +15,5 @@ export default {
   flutter,
   node,
   circle,
+  portfolioIMG,
 };

@@ -13,6 +13,7 @@ import author from './author'
 import tag from './tag'
 
 // Portfolio
+import domains from './domains';
 import contact from './contact'
 import experiences from './experiences'
 import skills from './skills'
@@ -37,6 +38,7 @@ export default createSchema({
     tag,
     blockContent,
     // for portfolio
+    domains,
     contact,
     experiences,
     skills,

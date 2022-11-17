@@ -6,18 +6,18 @@ import StickySocialMedia from '../StickySocialMedia/StickySocialMedia';
 import globalStyles from '../../styles/Home.module.scss';
 
 interface PropsInterface {
-  Component: NextComponentType;
+  children: JSX.Element|JSX.Element[];
   idName: string;
   classNames: string;
 }
 
-const PortfolioWrap: NextComponentType<{}, {}, PropsInterface> = ({ Component, idName, classNames} ) => {
+const PortfolioWrap = ({ children, idName, classNames}: PropsInterface) => {
   return (
     <div id={idName} className={`${globalStyles.app__container} ${classNames}`}>
       <StickySocialMedia />
 
       <div className={`${globalStyles.app__wrapper} ${globalStyles.app__flex}`}>
-        <Component />
+        {children}
 
         <div className={globalStyles.copyright}>
           <p className={globalStyles.pText}>@2022 Minh Duong</p>
