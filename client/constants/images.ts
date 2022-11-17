@@ -6,6 +6,8 @@ import flutter from '../assets/flutter.png';
 import node from '../assets/node.png';
 import circle from '../assets/circle.svg';
 import portfolioIMG from '../assets/portfolioIMG.jpeg'
+import email from '../assets/email.png'
+import mobile from '../assets/mobile.png'
 
 export default {
   logo,
@@ -16,4 +18,6 @@ export default {
   node,
   circle,
   portfolioIMG,
+  email,
+  mobile,
 };

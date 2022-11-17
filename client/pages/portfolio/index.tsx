@@ -15,7 +15,7 @@ import SkillInterface from '../../interfaces/SkillInterface'
 import styles from './Portfolio.module.scss';
 import globalStyles from '../../styles/Home.module.scss';
 
-import { Profile, About, Work, Skills } from '../../components/Portfolio';
+import { Profile, About, Work, Skills, Contact } from '../../components/Portfolio';
 import NavBar from '../../components/NavBar/NavBar';
 import Header from '../../components/Header/Header';
 
@@ -29,7 +29,7 @@ const Portfolio: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = 
       <About domains={domains}/>
       <Work works={works} />
       <Skills skills={skills} experiences={experiences} />
-
+      <Contact />
     </div>
   )
 }
