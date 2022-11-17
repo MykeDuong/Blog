@@ -61,6 +61,7 @@ const Work: NextComponentType<{}, {}, { works: WorkInterface[] } > = ({ works })
           
                 <motion.div
                   whileHover={{ opacity: [0, 1] }}
+                  onHoverEnd={e => {e.target!.style!.opacity = 0}}
                   transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
                   className={`${styles.app__workHover} ${globalStyles.app__flex}`}
                 >
