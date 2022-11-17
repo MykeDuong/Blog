@@ -57,7 +57,7 @@ const Work: NextComponentType<{}, {}, { works: WorkInterface[] } > = ({ works })
           {filterWork.map((work, index) => (
             <div className={`${styles.app__workItem} ${globalStyles.app__flex}`} key={index}>
               <div className={`${styles.app__workImg} ${globalStyles.app__flex}`}>
-                <Image src={urlFor(work.imgUrl).url()} alt={work.name} fill />
+                <Image src={urlFor(work.imgUrl).url()} alt={work.title} fill />
           
                 <motion.div
                   whileHover={{ opacity: [0, 1] }}

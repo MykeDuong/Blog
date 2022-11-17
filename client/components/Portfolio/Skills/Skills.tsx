@@ -20,6 +20,10 @@ const Skills: NextComponentType<{}, {}, PropsInterface> = ({ skills, experiences
 
   const [tooltip, showTooltip] = useState(true);
 
+  useEffect(() => {
+    showTooltip(false)
+  }, [])
+
   return (
     <PortfolioWrap idName={'skills'} classNames={globalStyles.app__whitebg}>
 
@@ -59,14 +63,14 @@ const Skills: NextComponentType<{}, {}, PropsInterface> = ({ skills, experiences
                   </div>
                   <motion.div className={styles.app__skillsExpWorks}>
                     {experience.works.map((work) => (
-                      <>
+                      <div key={work.name}>
                         <motion.div
                           whileInView={{ opacity: [0, 1] }}
                           transition={{ duration: 0.5 }}
                           className={styles.app__skillsExpWork}
                           data-tip
                           data-for={work.name}
-                          key={work.name}
+                          
                           onMouseEnter={() => showTooltip(true)}
                           onMouseLeave={() => {
                             showTooltip(false);
@@ -88,7 +92,7 @@ const Skills: NextComponentType<{}, {}, PropsInterface> = ({ skills, experiences
                             ))}
                           </ul>
                         </ReactTooltip>}
-                      </>
+                      </div>
                     ))}
                   </motion.div>
                 </motion.div>
