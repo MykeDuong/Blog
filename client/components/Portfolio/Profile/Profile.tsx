@@ -30,10 +30,9 @@ const Profile: NextComponentType<{}, {}, PropsInterface> = ({ author }) => {
 
   return (
     <PortfolioWrap classNames={`${globalStyles.app__primarybg} ${styles.up}`} idName="home" >
-
       <div className={`${styles.app__header} ${styles.home} ${globalStyles.app__primarybg} ${globalStyles.app__flex}`}>
         <motion.div
-          animate={{ x: [-100, 0], opacity: [0, 1]}}
+          whileInView={{ y: [200, 0], opacity: [0, 1]}}
           transition={{ duration:  0.8 }}
           className={`${styles.app__headerInfo}`}
         >
@@ -54,7 +53,7 @@ const Profile: NextComponentType<{}, {}, PropsInterface> = ({ author }) => {
         </motion.div>
 
         <motion.div 
-          whileInView={{ x: [-100, 0], opacity: [0, 1]}}
+          whileInView={{ y: [200, 0], opacity: [0, 1]}}
           transition={{ duration:  0.8, delayChildren: 0.8 }}
           className={styles.app__headerImg}
         >
@@ -74,7 +73,7 @@ const Profile: NextComponentType<{}, {}, PropsInterface> = ({ author }) => {
         </motion.div>
 
         <motion.div
-          variant={scaleVariants}
+          variants={scaleVariants}
           whileInView={scaleVariants.whileInView}
           className={styles.app__headerCircles}
         >

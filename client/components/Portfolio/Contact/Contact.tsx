@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { NextComponentType } from 'next';
 import Image from 'next/future/image'
 
@@ -18,8 +18,8 @@ const Contact: NextComponentType = () => {
 
   const { name, email, message } = formData;
 
-  const handleChangeInput = (e: Event) => {
-    const { name, value } = e.target;
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = (e.target as HTMLTextAreaElement | HTMLInputElement);
     setFormData({ ...formData, [name]: value });
   }
 

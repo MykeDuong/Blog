@@ -60,8 +60,8 @@ const Work: NextComponentType<{}, {}, { works: WorkInterface[] } > = ({ works })
                 <Image src={urlFor(work.imgUrl).url()} alt={work.title} fill />
           
                 <motion.div
-                  whileHover={{ opacity: [0, 1] }}
-                  onHoverEnd={e => {e.target!.style!.opacity = 0}}
+                  onHoverStart={e => {(e.target as HTMLDivElement).style.opacity = '1'}}
+                  onHoverEnd={e => {(e.target as HTMLDivElement).style.opacity = '0'}}
                   transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
                   className={`${styles.app__workHover} ${globalStyles.app__flex}`}
                 >

@@ -3,6 +3,7 @@ export default interface WorkInterface {
   types: string[];
   description: string;
   imageUrl: string;
+  imgUrl: any;
   codeLink: string;
   projectLink: string;
 }
