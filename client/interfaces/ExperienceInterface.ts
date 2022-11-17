@@ -5,6 +5,6 @@ export default interface ExperienceInterface {
 
 export interface WorkInterface {
   name: string;
-  conpany: string;
+  company: string;
   desc: string[];
 }
