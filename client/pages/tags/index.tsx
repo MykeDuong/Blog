@@ -18,7 +18,7 @@ const Tags: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ tags }
   return (
     <div className={globalStyles.app} >
       <NavBar />
-      <Header title="Tags" subtitle="" mainPage={true} mainImage="tagIMG" />
+      <Header title="Tags" subtitle="Right now, what I know" mainPage={true} mainImage="tagIMG" />
       <div className={styles.app__tagMain}>
         <div className={styles.app__tagList}>
           {tags.map((tag: TagInterface) => <Button text={tag.title} type={'tag'} link={`#${tag.title}`} key={`button of ${tag.title}`} />)}
