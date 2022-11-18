@@ -20,7 +20,8 @@
     "react-icons": "^4.6.0",
     "react-refractor": "^2.1.7",
     "react-tooltip": "^4.5.0",
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "sharp": "^0.31.2"
   },
   "devDependencies": {
     "@types/node": "18.11.9",
