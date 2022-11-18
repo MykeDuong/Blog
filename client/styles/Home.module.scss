@@ -152,7 +152,16 @@
     }
   }
 }
-  
+
+.app__anchor {
+  text-decoration: none;
+  border-bottom: 2px solid var(--lightGray-color);
+  transition: 0.2s;
+  &:hover {
+    border-bottom: 2px solid var(--gray-color);
+  }
+}
+
 @media screen and (max-width: 600px) {
   .app__navigation,
   .app__social {
