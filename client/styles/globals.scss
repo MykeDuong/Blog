@@ -22,8 +22,10 @@
   overscroll-behavior-y: none;
 }
 
-html {
-  overflow-x: initial !important;
+body{
+	width:100%;
+	overflow-x:hidden;
+	overflow-y:hidden;
 }
 
 html,

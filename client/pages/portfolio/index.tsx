@@ -24,12 +24,15 @@ const Portfolio: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = 
   return (
     <div className={globalStyles.app}>
       <NavBar />
+      <div className={styles.app__portfolio}>
       <Header title={'Portfolio'} subtitle={'My Coding Journey'} mainPage={false} mainImage={images.portfolioIMG} color={cssVar.primaryColor}/>
       <Profile author={author} />
       <About domains={domains}/>
       <Work works={works} />
       <Skills skills={skills} experiences={experiences} />
       <Contact />
+
+      </div>
     </div>
   )
 }
