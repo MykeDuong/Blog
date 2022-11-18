@@ -4,8 +4,12 @@
   margin-left: 18%;
   margin-right: 18%;
   margin-top: 50px;
+
 }
 
 
 .app__homeMainAdditionalInfo {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }

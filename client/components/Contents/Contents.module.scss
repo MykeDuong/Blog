@@ -1,4 +1,9 @@
 .app__contents {
   width: 70%;
   padding-right: 30px;
+  
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    width: 100%;
+  }
 }

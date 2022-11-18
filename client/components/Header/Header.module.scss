@@ -15,8 +15,14 @@
     padding-top: 8rem;
   }
 
-  @media screen and (max-width: 450px) {
-    padding: 6rem 1rem 2rem;
+  @media screen and (max-width: 768px) {
+    min-height: 50vh;
+    max-height: 50vh;
+    padding: 12rem 1rem 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 15rem 1rem 2rem;
   }
 
   img {
@@ -40,15 +46,30 @@
     font-size: 4rem;
   }
 
-  @media screen and (max-width: 450px) {
+
+
+  @media screen and (max-width: 768px) {
     font-size: 2rem;
   }
 }
 
-.pText {
+.subtitle {
   color: var(--white-color);
   font-size: 1.5rem;
   z-index: 2;
+  text-align: center;
+
+  @media screen and (max-width: 450px) {
+    margin-top: 10px;
+  }
+}
+
+.app__headerWaveBox {
+  margin-top: -15vh;
+
+  @media screen and (max-width: 768px) {
+    margin-top: -5vh;
+  }
 }
 
 /*------------------------ Wavy stuff----------------------*/
@@ -63,6 +84,7 @@
 
   @media (max-width: 768px) {
     min-height:20px;
+    max-height: 50px;
   }
 }
 

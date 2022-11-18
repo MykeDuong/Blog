@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
+import { HiMenu, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import Image from 'next/future/image';
 
@@ -23,9 +23,9 @@ const useScrollDirection = () => {
       }
       lastScrollY = scrollY > 0 ? scrollY : 0;
     };
-    window.addEventListener("scroll", updateScrollDirection); // add event listener
+    window.addEventListener("scroll", updateScrollDirection);
     return () => {
-      window.removeEventListener("scroll", updateScrollDirection); // clean up
+      window.removeEventListener("scroll", updateScrollDirection);
     }
   }, [scrollDirection]);
 
@@ -51,16 +51,16 @@ const NavBar: NextComponentType = () => {
       </ul>
 
       <div className={styles.app__navbarMenu}>
-          <HiMenuAlt4 onClick={() => setToggle(true)} />
+          <HiMenu onClick={() => setToggle(true)} />
           
           {toggle && (
             <motion.div 
-              animate={{ x: [300, 0] }}
+              animate={{ x: [100, 0] }}
               transition={{ duration: 0.85, ease: 'easeOut' }}
             >
               <HiX onClick={() => setToggle(false)}/>
               <ul>
-                { ['home', 'about', 'work', 'skills', 'contact'].map((item) => (
+                { ['home', 'portfolio', 'tags'].map((item) => (
                   <li key={item} >
                     <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
                   </li>

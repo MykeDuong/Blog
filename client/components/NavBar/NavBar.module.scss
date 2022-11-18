@@ -100,13 +100,11 @@
     justify-content: center;
     align-items: center;
 
-    background-color: var(--secondary-color);
-
     svg {
         width: 70%;
         height: 70%;
 
-        color: var(--white-color);
+        color: var(--gray-color);
     }
 
     div {
@@ -117,7 +115,7 @@
         z-index: 5;
 
         padding: 1rem;
-        width: 80%;
+        width: 30%;
         height: 100vh;
 
         display: flex;
@@ -131,6 +129,7 @@
         background-size: cover;
 
         background-repeat: repeat;
+        overflow: hidden;
 
         box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
 
