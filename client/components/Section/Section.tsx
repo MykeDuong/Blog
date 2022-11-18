@@ -1,5 +1,5 @@
 import { NextComponentType } from 'next';
-import { PortableText, PortableTextBlockComponent } from '@portabletext/react';
+import { PortableText, PortableTextBlockComponent, PortableTextTypeComponent } from '@portabletext/react';
 import Refractor from 'react-refractor'
 import js  from 'refractor/lang/javascript'
 import typescript from 'refractor/lang/typescript';
@@ -39,18 +39,17 @@ const H4Component: PortableTextBlockComponent = ({children}) => {
 }
 
 // Code
-interface code {
+interface CodeInterface {
   value: {
     code: string;
     language: string;
   }
-  highlightedLines: number[];
 }
 
-const CodeComponent = (code) => {
+const CodeComponent: PortableTextTypeComponent = (code: CodeInterface) => {
   return (
     <div className={styles.app__sectionCode}>
-      <Refractor value={code.value.code} language={code.value.language} markers={code.highlightedLines} />
+      <Refractor value={code.value.code} language={code.value.language !== "groq" ? code.value.language : 'javascript'} />
     </div>
   )
 }
