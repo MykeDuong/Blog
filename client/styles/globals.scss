@@ -22,6 +22,17 @@
   overscroll-behavior-y: none;
 }
 
+html,
+body {
+  background: #130f40;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #f8f8f2;

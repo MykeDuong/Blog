@@ -3,6 +3,11 @@
   margin-left: 25%;
   margin-right: 25%;
 
+  @media screen and (max-width: 768px) {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+
 }
 
 .app__tagList {

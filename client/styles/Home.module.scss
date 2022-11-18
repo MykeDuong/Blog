@@ -1,6 +1,7 @@
 .app {
   background-color: var(--white-color);
   font-family: var(--font-base);
+  width: 100%;
 
   @media screen and (max-width: 700px){
     width: 100%;

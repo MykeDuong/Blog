@@ -55,14 +55,14 @@ const NavBar: NextComponentType = () => {
           
           {toggle && (
             <motion.div 
-              animate={{ x: [100, 0] }}
+              animate={{ x: [300, 0] }}
               transition={{ duration: 0.85, ease: 'easeOut' }}
             >
               <HiX onClick={() => setToggle(false)}/>
               <ul>
                 { ['home', 'portfolio', 'tags'].map((item) => (
                   <li key={item} >
-                    <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
+                    <Link href={`/${item}`} onClick={() => setToggle(false)}>{item}</Link>
                   </li>
                 )) }
               </ul>

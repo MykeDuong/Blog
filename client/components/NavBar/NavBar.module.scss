@@ -115,7 +115,7 @@
         z-index: 5;
 
         padding: 1rem;
-        width: 30%;
+        width: 50%;
         height: 100vh;
 
         display: flex;
@@ -177,6 +177,7 @@
             display: none;
         }
     }
+
     @media screen and (min-width: 900px) {
         display: none;
     }
