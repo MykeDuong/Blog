@@ -34,7 +34,6 @@ const Skills: NextComponentType<{}, {}, PropsInterface> = ({ skills, experiences
           <motion.div
             className={styles.app__skillsList}
           >
-            {console.log(skills)}
             {skills.map((skill) => (
               <motion.div
                 whileInView={{ opacity: [0, 1] }}

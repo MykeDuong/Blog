@@ -9,7 +9,7 @@ import globalStyles from '../../styles/Home.module.scss'
 import { NextComponentType } from 'next';
 import Link from 'next/link';
 
-function useScrollDirection() {
+const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState("up");
 
   useEffect(() => {

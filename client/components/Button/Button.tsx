@@ -12,7 +12,7 @@ interface Props {
 
 const Button: NextComponentType<{}, {}, Props> = ({ type, text , link }) => {
   return (
-    <Link href={link} >
+    <Link href={link} scroll={false} >
       <button className={`${styles.button} ${type === "tag" ? styles.tag : styles.normal}`}>
         <p className={styles.text}>{text}</p>
       </button>

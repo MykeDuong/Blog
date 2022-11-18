@@ -6,6 +6,7 @@ import PostInterface from '../../interfaces/PostInterface';
 import styles from './ContentList.module.scss';
 import globalStyles from '../../styles/Home.module.scss';
 import variables from '../../styles/variables.module.scss';
+import Link from 'next/link';
 
 interface Props {
   contents: PostInterface[];
@@ -21,7 +22,7 @@ const Contents: NextComponentType<{}, {}, Props> = ({ contents }) => {
       <ol className={styles.app__contentListItems}>
         {contents?.map((content) => (
           <li key={`contentList ${content.title}`} >
-            <a href={`#${content.slug.current}`}>{content.title}</a>
+            <Link href={`#${content.slug.current}`} scroll={false}>{content.title}</Link>
           </li>
         ))}
       </ol>

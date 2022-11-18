@@ -29,9 +29,15 @@
   color: var(--grayBlack-color);
 
   li {
+    margin: 5px 0;
     a {
-      color: var(--grayBlack-color);
       text-decoration: none;
+      color: var(--grayBlack-color);
+      transition: 0.2s;
+
+      &:hover {
+        border-bottom: 2px solid var(--gray-color);
+      }
     }
   }
 }

@@ -12,7 +12,6 @@ interface Props {
 }
 
 const Content: NextComponentType<{}, {}, Props> = ({ content }) => {
-  console.log(content);
   return (
     <div className={styles.app__content} id={content.slug.current}>
       <div className={styles.imageBox}>
@@ -25,7 +24,7 @@ const Content: NextComponentType<{}, {}, Props> = ({ content }) => {
       </div>
       <div className={styles.tags}>
         {content?.tags?.map((tag: { title: string; }) => (
-          <Button type="tag" text={tag.title} key={`key of ${tag.title}`} link="" />
+          <Button type="tag" text={tag.title} key={`key of ${tag.title}`} link={`tags/#${tag.title}`} />
         ))}
       </div>
       <div className={styles.app__contentFooter}>

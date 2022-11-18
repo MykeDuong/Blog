@@ -15,7 +15,6 @@ import Button from '../../components/Button/Button';
 import Link from 'next/link';
 
 const Tags: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ tags }) => {
-  console.log(tags);
   return (
     <div className={globalStyles.app} >
       <NavBar />
@@ -26,7 +25,7 @@ const Tags: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ tags }
         </div>
         <div className={styles.app__tagContents}>
           {tags.map((tag: TagInterface) => 
-          <div key={`content of ${tag.title}`} className={styles.app__tagContent}>
+          <div key={`content of ${tag.title}`} className={styles.app__tagContent} id={tag.title}>
             <div className={styles.tagTitle} ><AiFillTag /><p>{tag.title}</p></div>
             <div className={styles.app__tagPosts}>
               {tag.posts.map(post =>

@@ -1,14 +1,19 @@
 import { NextComponentType } from 'next';
-import { PortableText, PortableTextBlockComponent, PortableTextTypeComponent } from '@portabletext/react';
+import { PortableText, PortableTextBlockComponent, PortableTextMarkComponent, PortableTextTypeComponent } from '@portabletext/react';
 import Refractor from 'react-refractor'
 import js  from 'refractor/lang/javascript'
 import typescript from 'refractor/lang/typescript';
+import bash from 'refractor/lang/bash';
+import tsx from 'refractor/lang/tsx';
 import React from 'react'
 
 import styles from './Section.module.scss';
+import { unknownListStyleWarning } from '@portabletext/react/src/warnings';
 
 Refractor.registerLanguage(js);
 Refractor.registerLanguage(typescript);
+Refractor.registerLanguage(bash);
+Refractor.registerLanguage(tsx);
 
 interface Props {
   title: string;
@@ -17,7 +22,7 @@ interface Props {
   language?: string;
 }
 
-// Components
+// Types
 const NormalComponent: PortableTextBlockComponent = ({children}) => {
   return <p className={styles.shortenedText}>{children}</p>
 }
@@ -38,6 +43,16 @@ const H4Component: PortableTextBlockComponent = ({children}) => {
   return <h5 className={styles.shortenedText}>{children}</h5>
 }
 
+// Marks
+const CodeComponent: PortableTextMarkComponent = ({children}) => {
+  return <code className={styles.app__sectionCode}>{children}</code>
+}
+
+const LinkComponent: PortableTextMarkComponent = ({children, value}) => {
+  const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
+  return <a href={value.href} rel={rel} className={styles.app__sectionLink}>{children}</a>
+}
+
 // Code
 interface CodeInterface {
   value: {
@@ -46,17 +61,38 @@ interface CodeInterface {
   }
 }
 
-const CodeComponent: PortableTextTypeComponent = (code: CodeInterface) => {
+const CodeSnippetComponent: PortableTextTypeComponent = (code: CodeInterface) => {
+  let language;
+
+  switch (code.value.language) {
+    case "sh": {
+      language = 'bash';
+      break;
+    }
+    case "groq": {
+      language = 'javascript';
+      break;
+    }
+    default: {
+      language = code.value.language;
+    }
+  }
+
   return (
-    <div className={styles.app__sectionCode}>
-      <Refractor value={code.value.code} language={code.value.language !== "groq" ? code.value.language : 'javascript'} />
+    <div className={styles.app__sectionCodeSnippet}>
+      <Refractor value={code.value.code} language={language} />
     </div>
   )
 }
 
 const PortableTextComponent = {
   types: {
+    code: CodeSnippetComponent,
+
+  },
+  marks: {
     code: CodeComponent,
+    link: LinkComponent,
   },
   block: {
     normal:  NormalComponent,
