@@ -39,16 +39,25 @@ const H4Component: PortableTextBlockComponent = ({children}) => {
 }
 
 // Code
-const JSCodeComponent = (props) => {
-  console.log(props)
+interface code {
+  value: {
+    code: string;
+    language: string;
+  }
+  highlightedLines: number[];
+}
+
+const CodeComponent = (code) => {
   return (
-    <Refractor value={props.value.code} language={props.value.language} markers={props.highlightedLines} />
+    <div className={styles.app__sectionCode}>
+      <Refractor value={code.value.code} language={code.value.language} markers={code.highlightedLines} />
+    </div>
   )
 }
 
 const PortableTextComponent = {
   types: {
-    code: JSCodeComponent,
+    code: CodeComponent,
   },
   block: {
     normal:  NormalComponent,
