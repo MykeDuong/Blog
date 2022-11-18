@@ -5,7 +5,7 @@ import Image from 'next/future/image'
 import { images } from '../../../constants';
 import PortfolioWrap from '../../wrappers/PortfolioWrap';
 
-import styles from './contact.module.scss';
+import styles from './Contact.module.scss';
 import globalStyles from '../../../styles/Home.module.scss';
 
 import client from '../../../client';
