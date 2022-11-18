@@ -14,15 +14,15 @@ import Image from 'next/future/image';
 const Work: NextComponentType<{}, {}, { works: WorkInterface[] } > = ({ works }) => {
 
   const [activeFilter, setActiveFilter] = useState("All");
-  const [animateCard, setAnimateCard] = useState([{ y: 0, opacity: 1 }]);
+  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [filterWork, setFilterWork] = useState([...works]);
 
   const handleWorkFilter = (item: string) => {
     setActiveFilter(item);
-    setAnimateCard([{ y: 100, opacity: 0 }]);
+    setAnimateCard({ y: 100, opacity: 0 });
 
     setTimeout(() => {
-      setAnimateCard([{ y: 0, opacity: 1 }]);
+      setAnimateCard({ y: 0, opacity: 1 });
 
       if (item === 'All') {
         setFilterWork(works);
