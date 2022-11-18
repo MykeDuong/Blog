@@ -5,6 +5,10 @@
   margin-right: 18%;
   margin-top: 50px;
 
+  @media screen and (max-width: 1200px) {
+    margin: 50px 10% 0;
+  }
+
 }
 
 

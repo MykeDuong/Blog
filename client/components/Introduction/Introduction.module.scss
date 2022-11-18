@@ -6,16 +6,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: 30px;
   border-bottom: solid;
   padding-bottom: 40px;
   border-color: var(--veryLightGray-color);
   border-width: 1px;
+
+  @media screen and (max-width: 1200px) {
+    margin: 20px 10% 50px 10%;
+  }
 }
 
 .app__introductionImageBox {
-  height: 15rem;
   width: 15rem;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   text-align: center;
   position: relative;
@@ -44,7 +49,6 @@
   }
 
   @media screen and (max-width: 768px) {
-    padding: 5px 10px;
     h1 {
       font-size: 2rem;
     }
@@ -54,6 +58,11 @@
       padding-bottom: 10px;
     }
   }
+
+  @media screen and (max-width: 450px) {
+    padding: 15px 15px;
+  }
+
 }
 
 .welcome {

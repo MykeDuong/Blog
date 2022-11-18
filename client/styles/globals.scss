@@ -22,6 +22,10 @@
   overscroll-behavior-y: none;
 }
 
+html {
+  overflow-x: initial !important;
+}
+
 html,
 body {
   background: #130f40;
