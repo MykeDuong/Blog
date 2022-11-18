@@ -40,7 +40,6 @@ const Contact: NextComponentType = () => {
 
   }
 
-
   return (
     <PortfolioWrap idName={'contact'} classNames={globalStyles.app__primarybg}>
 
