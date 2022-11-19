@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 
-import PortfolioWrap from '../../wrappers/PortfolioWrap';
+import PortfolioWrap from '../../wrappers/PortfolioWrap/PortfolioWrap';
 import { urlFor } from '../../../client';
 
 import styles from './Work.module.scss';

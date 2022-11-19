@@ -1,22 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NextComponentType } from 'next'
 
 import styles from './Button.module.scss'
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 interface Props {
   text: string;
-  type: string;
-  link: string;
+  subText?: string;
+  type?: string;
+  link?: string;
+  onClick?: () => {};
 }
 
-const Button: NextComponentType<{}, {}, Props> = ({ type, text , link }) => {
+const Button: NextComponentType<{}, {}, Props> = ({ type, text, subText, link, onClick }) => {
+  const [clicked, setClicked] = useState(false);
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    setClicked(true);
+
+    if (onClick) {
+      onClick();
+    }
+
+    if (link) {
+      router.push(link, undefined, { scroll: true });
+    }
+  }
+
   return (
-    <Link href={link} scroll={true} >
-      <button className={`${styles.button} ${type === "tag" ? styles.tag : styles.normal}`}>
-        <p className={styles.text}>{text}</p>
+      <button className={`${styles.button} ${type === "tag" ? styles.tag : styles.normal}`} onClick={handleClick}>
+        <p className={styles.text}>{(subText && clicked) ? subText : text}</p>
       </button>
-    </Link> 
   )
 }
 

@@ -22,7 +22,6 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
 
   return (    
     <div className={globalStyles.app} >
-      <NavBar />
       <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} mainPage={false} />
       <div className={styles.app__blogBody}>
         <div className={styles.app__blogBodyMain}>
@@ -33,7 +32,6 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
           <ContentList contents={post.sections} />
         </div>
       </div>
-      <Footer />
     </div>
   )
 }

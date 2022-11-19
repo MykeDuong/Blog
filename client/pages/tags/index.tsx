@@ -17,7 +17,6 @@ import Link from 'next/link';
 const Tags: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ tags }) => {
   return (
     <div className={globalStyles.app} >
-      <NavBar />
       <Header title="Tags" subtitle="Right now, what I know" mainPage={true} mainImage="tagIMG" />
       <div className={styles.app__tagMain}>
         <div className={styles.app__tagList}>
@@ -36,7 +35,6 @@ const Tags: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ tags }
           </div>)}
         </div>
       </div>
-      <Footer />
     </div>
   )
 }

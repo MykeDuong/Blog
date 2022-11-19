@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ReactTooltip from 'react-tooltip';
 import Image from 'next/future/image';
-import PortfolioWrap from '../../wrappers/PortfolioWrap';
-import { urlFor } from '../../../client';
 
+import { urlFor } from '../../../client';
+import { PortfolioWrap } from '../../wrappers';
 import styles from './Skills.module.scss';
 import globalStyles from '../../../styles/Home.module.scss';
 import { NextComponentType } from 'next';

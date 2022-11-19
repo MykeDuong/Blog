@@ -74,13 +74,13 @@
             transition: all 0.2s ease-in-out;
 
             &:hover {
-                color: var(--secondary-color);
+                color: var(--grayBlack-color);
             }
         }
 
         &:hover {
             div {
-                background: var(--secondary-color);
+                background: var(--grayBlack-color);
             }
         }
     }

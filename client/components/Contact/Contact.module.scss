@@ -1,0 +1,191 @@
+.app__contact {
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+  padding-top: 50px;
+  background-color: var(--veryLightGray-color);
+  padding-bottom: 1rem;
+}
+
+.app__contactCards {
+  padding: 0 20%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 4rem 2rem 2rem;
+
+  .app__contactCard {
+    min-width: 280px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 2px solid var(--grayBlackColor);
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--grayBlack-color);
+    transition: all 0.3s ease-in-out;
+
+    img {
+        width: 40px;
+        height: 40px;
+        margin: 0 0.7rem;
+    }
+
+    p {
+      font-weight: 600;
+    }
+
+    a {
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--white-color)
+    }
+
+    &:hover {
+        background-color: var(--veryLightGray-color);
+        border: 2px solid var(--gray-color);
+
+        a {
+          color: var(--grayBlack-color)
+        }
+    }
+    @media screen and (max-width: 450px) {
+        width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.app__contactForm {
+  padding: 0 20% 0;
+  flex-direction: column;
+  margin: 1rem 2rem;
+
+  div {
+    width: 100%;
+    margin: 0.75rem 0;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+
+    transition: all 0.3s ease-in-out;
+
+    input, textarea {
+      width: 100% !important;
+      padding: 0.95rem;
+      border: none;
+      border-radius: 7px;
+      background-color: var(--white-color);
+        
+      font-family: var(--font-base);
+      color: var(--secondary-color);
+      outline: none;
+    }
+
+    textarea {
+      height: 180px !important;
+    }
+
+    &:hover {
+      box-shadow: 0 0 25px var(--primary-color);
+    }
+  }
+
+  button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: 1px;
+    background-color: var(--grayBlack-color);
+
+    font-weight: 500;
+    color: var(--white-color);
+    margin: 2rem 0 0 0;
+    font-family: var(--font-base);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      border: solid var(--grayBlack-color);
+      background-color: var(--veryLightGray-color);
+      color: var(--grayBlack-color);
+    }
+  }
+  @media screen and (max-width: 900px) {
+    margin: 1rem 5%;
+    width: 90%;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 0;
+  }
+}
+
+.thankyou {
+  margin-top: 10rem;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 8rem;
+  }
+}
+
+/*------------------------ Wavy stuff----------------------*/
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+
+  @media (max-width: 768px) {
+    min-height:20px;
+    max-height: 50px;
+  }
+}
+
+.parallax {
+  use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    
+    &:nth-child(1) {
+      animation-delay: -2s;
+      animation-duration: 7s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -3s;
+      animation-duration: 10s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 13s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: -5s;
+      animation-duration: 20s;
+    }
+  }
+}
+
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+

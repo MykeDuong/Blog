@@ -12,7 +12,7 @@ interface Props {
   contents: PostInterface[];
 }
 
-const Contents: NextComponentType<{}, {}, Props> = ({ contents }) => {
+const ContentList: NextComponentType<{}, {}, Props> = ({ contents }) => {
 
   return (
     <div className={ styles.app__contentList }>
@@ -30,4 +30,4 @@ const Contents: NextComponentType<{}, {}, Props> = ({ contents }) => {
   )
 }
 
-export default Contents;
+export default ContentList;

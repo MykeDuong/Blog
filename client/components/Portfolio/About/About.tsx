@@ -4,7 +4,7 @@ import Image from 'next/future/image'
 
 import { urlFor } from '../../../client';
 
-import PortfolioWrap from '../../wrappers/PortfolioWrap';
+import { PortfolioWrap } from '../../wrappers';
 import styles from  './About.module.scss';
 import globalStyles from '../../../styles/Home.module.scss';
 import { NextComponentType } from 'next';

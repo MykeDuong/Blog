@@ -4,6 +4,7 @@
   --font-base: "DM Sans", sans-serif;
 
   --primary-color: #edf2f8;
+	--highlight-color: #313bac;
   --secondary-color: #313bac;
   --black-color: #030303;
   --grayBlack-color: #444444;
@@ -18,19 +19,9 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
   overscroll-behavior-y: none;
 }
-
-// body{
-	
-// }
-
-// html,
-// body {
-//   overflow-x: hidden;
-//   scroll-behavior: smooth;
-// }
 
 body {
   position: relative;

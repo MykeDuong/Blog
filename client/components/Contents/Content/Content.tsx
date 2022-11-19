@@ -3,8 +3,8 @@ import React from 'react'
 import Image from 'next/future/image';
 
 import PostInterface from '../../../interfaces/PostInterface';
-import Button from '../../Button/Button';
-import CustomPortableText from '../../ShortenedPortableText/ShortenedPortableText';
+import Button from '../../Button/';
+import ShortenedPortableText from '../../ShortenedPortableText/ShortenedPortableText';
 import styles from './Content.module.scss';
 
 interface Props {
@@ -20,7 +20,7 @@ const Content: NextComponentType<{}, {}, Props> = ({ content }) => {
       <p className={styles.info}>{new Date(content._createdAt).toLocaleDateString()}  &nbsp; •  &nbsp; {content.author.name}</p>
       <h1 className={styles.contentTitle}>{content.title}</h1>
       <div className={styles.body}>
-        <CustomPortableText value={content.body}/>
+        <ShortenedPortableText value={content.body}/>
       </div>
       <div className={styles.tags}>
         {content?.tags?.map((tag: { title: string; }) => (

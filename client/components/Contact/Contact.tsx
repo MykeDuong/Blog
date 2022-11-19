@@ -2,13 +2,14 @@ import React, { ChangeEvent, useState } from 'react';
 import { NextComponentType } from 'next';
 import Image from 'next/future/image'
 
-import { images } from '../../../constants';
-import PortfolioWrap from '../../wrappers/PortfolioWrap';
+import { images } from '../../constants';
+import { PortfolioWrap } from '../wrappers';
+import cssVar from '../../styles/variables.module.scss';
+
 
 import styles from './Contact.module.scss';
-import globalStyles from '../../../styles/Home.module.scss';
-
-import client from '../../../client';
+import globalStyles from '../../styles/Home.module.scss';
+import Button from '../Button';
 
 const Contact: NextComponentType = () => {
 
@@ -24,6 +25,11 @@ const Contact: NextComponentType = () => {
   }
 
   const handleSubmit = async () => {
+
+    if (!message) {
+      return;
+    }
+
     setLoading(true);
 
     const contact = {
@@ -33,7 +39,6 @@ const Contact: NextComponentType = () => {
       message: message
     }
 
-    
     const response = await fetch("/api/message", {
       method: "POST",
       headers: {
@@ -45,14 +50,27 @@ const Contact: NextComponentType = () => {
         setLoading(false);
         setIsFormSubmitted(true);
       });
-
   }
+  
+  const color = cssVar.veryLightGrayColor;
 
   return (
-    <PortfolioWrap idName={'contact'} classNames={globalStyles.app__primarybg}>
-
+    <div>
+<div className={styles.app__headerWaveBox}>
+        <svg className={styles.waves} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g className={styles.parallax}>
+            <use xlinkHref="#gentle-wave" x="48" y="0" fill={color ? color: 'rgba(255,255,255)' } fillOpacity='0.7' />
+            <use xlinkHref="#gentle-wave" x="48" y="3" fill={color ? color: 'rgba(255,255,255)' } fillOpacity='0.5'  />
+            <use xlinkHref="#gentle-wave" x="48" y="5" fill={color ? color: 'rgba(255,255,255)' } fillOpacity='0.3'  />
+            <use xlinkHref="#gentle-wave" x="48" y="7"  fill={color ? color: '#fff' }  />
+          </g>
+        </svg>
+      </div>
       <div className={styles.app__contact}>
-        <h2 className={globalStyles.headText}>Take a coffee and chat with me</h2>
+        <h2 className={` ${globalStyles.headText} ${styles.app__contactHeader}`}>Take a coffee and chat with me</h2>
 
         <div className={styles.app__contactCards}>
           <div className={styles.app__contactCard}>
@@ -83,6 +101,7 @@ const Contact: NextComponentType = () => {
               />
             </div>
             <button type="button" className={globalStyles.pText} onClick={handleSubmit}>{loading ? 'Sending' : 'Send Message'}</button>
+            {/* <Button text={'Send Message'} subText={'Sending'} onClick={handleSubmit} /> */}
           </div>
         ) : (
           <div className={styles.thankyou}>
@@ -90,7 +109,7 @@ const Contact: NextComponentType = () => {
           </div>
         )}
       </div>
-    </PortfolioWrap>
+      </div>
   )
 }
 

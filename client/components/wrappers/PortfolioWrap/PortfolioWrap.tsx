@@ -1,12 +1,12 @@
 import { NextComponentType } from 'next';
 import React from 'react'
 import { motion } from 'framer-motion';
-import NavigationDots from '../NavigationDots/NavigationDots';
-import StickySocialMedia from '../StickySocialMedia/StickySocialMedia';
+import NavigationDots from '../../NavigationDots/NavigationDots';
+import StickySocialMedia from '../../StickySocialMedia';
 
 
 
-import globalStyles from '../../styles/Home.module.scss';
+import globalStyles from '../../../styles/Home.module.scss';
 
 interface PropsInterface {
   children: JSX.Element|JSX.Element[];
@@ -17,8 +17,6 @@ interface PropsInterface {
 const PortfolioWrap = ({ children, idName, classNames}: PropsInterface) => {
   return (
     <div id={idName} className={`${globalStyles.app__container} ${classNames}`}>
-      <StickySocialMedia />
-
         <motion.div
           whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
           transition={{ duration: 0.5 }}

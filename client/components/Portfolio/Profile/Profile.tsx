@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/future/image'
 
 import { images } from '../../../constants';
-import PortfolioWrap from '../../wrappers/PortfolioWrap';
+import { PortfolioWrap } from '../../wrappers';
 
 import styles from './Profile.module.scss';
 import globalStyles from '../../../styles/Home.module.scss';

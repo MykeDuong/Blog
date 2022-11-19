@@ -21,6 +21,8 @@
   padding-bottom: 30px;
   margin-bottom: 30px;
   border-bottom: 1px solid var(--lightGray-color);
+  scroll-margin-top: 8em;
+  scroll-behavior: smooth;
 }
 
 .tagTitle {

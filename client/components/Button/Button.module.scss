@@ -1,7 +1,7 @@
 .button {
   border-style: solid;
   border-width: 1px;
-  border-color: var(--black-color);
+  border-color: var(--grayBlack-color);
   display: flex;
   background-color: var(--white-color);
   align-items: center;
@@ -9,7 +9,7 @@
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: var(--black-color);
+    background-color: var(--grayBlack-color);
 
     .text {
       color: var(--lightGray-color);
@@ -24,6 +24,7 @@
   .text {
     font-size: 0.9rem;
     text-transform: uppercase;
+    color: var(--grayBlack-color)
   }
 }
 
