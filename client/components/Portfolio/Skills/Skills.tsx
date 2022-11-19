@@ -18,7 +18,7 @@ export interface PropsInterface {
 
 const Skills: NextComponentType<{}, {}, PropsInterface> = ({ skills, experiences }) => {
 
-  const [tooltip, showTooltip] = useState(true);
+  const [tooltip, showTooltip] = useState(false);
 
   useEffect(() => {
     showTooltip(false)

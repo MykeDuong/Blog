@@ -32,9 +32,33 @@ const useScrollDirection = () => {
   return scrollDirection;
 };
 
+const BurgerBarVariants = {
+  initial: {
+    x: "110vw",
+    opacity: 0.5,
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
+    },
+  },
+  exit: {
+    x: "-110vw",
+    opacity: 0.5,
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
+    },
+  },
+}
+
 const NavBar: NextComponentType = () => {
   const [toggle, setToggle] = useState(false);
   const scrollDirection = useScrollDirection()
+
 
   return (
     <nav className={`${styles.app__navbar} ${ scrollDirection === "down" ? styles.hide : "show"}`}>
@@ -54,15 +78,14 @@ const NavBar: NextComponentType = () => {
           <HiMenu onClick={() => setToggle(true)} />
           
           {toggle && (
-            <motion.div 
-              animate={{ x: [300, 0] }}
-              transition={{ duration: 0.85, ease: 'easeOut' }}
+            <motion.div
+              variants={BurgerBarVariants}
             >
               <HiX onClick={() => setToggle(false)}/>
               <ul>
                 { ['home', 'portfolio', 'tags'].map((item) => (
                   <li key={item} >
-                    <Link href={`/${item}`} onClick={() => setToggle(false)}>{item}</Link>
+                    <Link href={`/${item}`}><a  onClick={() => setToggle(false)}>{item}</a></Link>
                   </li>
                 )) }
               </ul>
