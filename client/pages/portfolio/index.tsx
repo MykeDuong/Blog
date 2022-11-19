@@ -1,7 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import React from 'react'
-import { motion } from 'framer-motion';
-import Image from 'next/future/image';
 
 import cssVar from '../../styles/variables.module.scss';
 

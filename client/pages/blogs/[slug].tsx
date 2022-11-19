@@ -3,9 +3,7 @@ import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType, NextPage } fro
 
 import client from '../../client'
 import ContentList from '../../components/ContentList/ContentList'
-import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
-import NavBar from '../../components/NavBar/NavBar'
 
 import PostInterface from '../../interfaces/PostInterface'
 import Section from '../../components/Section/Section';

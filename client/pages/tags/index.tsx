@@ -2,11 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType, NextComponentType, NextPage } 
 import React from 'react'
 import { AiFillTag } from 'react-icons/ai'
 
-import { images } from '../../constants';
-import NavBar from '../../components/NavBar/NavBar';
 import Header from '../../components/Header/Header';
-import ContentList from '../../components/ContentList/ContentList';
-import Footer from '../../components/Footer/Footer';
 import styles from './Tag.module.scss';
 import globalStyles from '../../styles/Home.module.scss';
 import client from '../../client';
