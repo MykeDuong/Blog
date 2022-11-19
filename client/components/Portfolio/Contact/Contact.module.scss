@@ -118,3 +118,12 @@
     padding: 0;
   }
 }
+
+.thankyou {
+  margin-top: 10rem;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 8rem;
+  }
+}

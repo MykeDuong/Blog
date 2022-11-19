@@ -23,7 +23,7 @@ const Contact: NextComponentType = () => {
     setFormData({ ...formData, [name]: value });
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setLoading(true);
 
     const contact = {
@@ -32,11 +32,19 @@ const Contact: NextComponentType = () => {
       email: email,
       message: message
     }
-    client.create(contact)
+
+    
+    const response = await fetch("/api/message", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(contact)
+    })
       .then(() => {
         setLoading(false);
         setIsFormSubmitted(true);
-      })
+      });
 
   }
 
@@ -77,8 +85,8 @@ const Contact: NextComponentType = () => {
             <button type="button" className={globalStyles.pText} onClick={handleSubmit}>{loading ? 'Sending' : 'Send Message'}</button>
           </div>
         ) : (
-          <div>
-            <h3 className={globalStyles.headText}>Thank you for getting in touch!</h3>
+          <div className={styles.thankyou}>
+            <h3 className={`${globalStyles.headText}`}>Thank you for getting in touch!</h3>
           </div>
         )}
       </div>
