@@ -21,23 +21,21 @@
 }
 
 .buttonDark {
-  border-color: var(--veryLightGray-color);
+  border-color: var(--lightGray-color);
   background-color: var(--darkTheme-color);
 
   .text {
-    color: var(--white-color);
+    color: var(--lightGray-color);
   }
 
   &:hover {
-    background-color: var(--white-color);
+    background-color: var(--lightGray-color);
     
     .text {
-      color: var(--grayBlack-color);
+      color: var(--darkTheme-color);
     }
   }
 }
-
-
 
 .normal {
   height: 50px;

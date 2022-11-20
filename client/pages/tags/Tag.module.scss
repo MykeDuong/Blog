@@ -20,9 +20,16 @@
 .app__tagContent {
   padding-bottom: 30px;
   margin-bottom: 30px;
-  border-bottom: 1px solid var(--lightGray-color);
   scroll-margin-top: 8em;
   scroll-behavior: smooth;
+}
+
+.app__tagContentLight {
+  border-bottom: 1px solid var(--lightGray-color);
+}
+
+.app__tagContentDark {
+  border-bottom: 1px solid var(--grayBlack-color);
 }
 
 .tagTitle {
@@ -37,12 +44,35 @@
   }  
 }
 
+.tagTitleLight {
+  * {
+    color: var(--grayBlack-color)
+  }
+}
+
+.tagTitleDark {
+  * {
+    color: var(--veryLightGray-color);
+  }
+}
+
 .postTitle {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.postTitleLight{
   color: var(--gray-color);
 
-  * {
-    text-decoration: none;
-    color: var(--gray-color);
-    font-size: 1.2rem;
+  &:hover {
+    border-bottom: 2px solid var(--gray-color);
+  }
+}
+
+.postTitleDark {
+  color: var(--gray-color);
+  
+  &:hover {
+    border-bottom: 2px solid var(--gray-color);
   }
 }
