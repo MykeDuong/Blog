@@ -6,19 +6,21 @@ import PostInterface from '../../../interfaces/PostInterface';
 import Button from '../../Button/';
 import ShortenedPortableText from '../../ShortenedPortableText/ShortenedPortableText';
 import styles from './Content.module.scss';
+import useStore from '../../../store';
 
 interface Props {
   content: PostInterface;
 }
 
 const Content: NextComponentType<{}, {}, Props> = ({ content }) => {
+  const { theme } = useStore();
   return (
-    <div className={styles.app__content} id={content.slug.current}>
+    <div className={`${styles.app__content} ${theme ? styles.app__contentLight : styles.app__contentDark}`} id={content.slug.current}>
       <div className={styles.imageBox}>
         <Image src={content.mainImageUrl} alt={`${content.title} main image`} className={styles.app__contentMainImage} fill />
       </div>
-      <p className={styles.info}>{new Date(content._createdAt).toLocaleDateString()}  &nbsp; •  &nbsp; {content.author.name}</p>
-      <h1 className={styles.contentTitle}>{content.title}</h1>
+      <p className={`${styles.info} ${theme ? styles.infoLight : styles.infoDark}`}>{new Date(content._createdAt).toLocaleDateString()}  &nbsp; •  &nbsp; {content.author.name}</p>
+      <h1 className={`${styles.contentTitle} ${theme ? styles.contentTitleLight : styles.contentTitleDark}`}>{content.title}</h1>
       <div className={styles.body}>
         <ShortenedPortableText value={content.body}/>
       </div>

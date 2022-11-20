@@ -5,6 +5,7 @@ import client from '../client';
 import globalStyles from '../styles/Home.module.scss';
 import styles from './Root.module.scss';
 
+import useStore from '../store';
 import Header from '../components/Header/Header';
 import Introduction from '../components/Introduction/Introduction'
 import Contents from '../components/Contents/Contents';
@@ -14,8 +15,10 @@ import PostInterface from '../interfaces/PostInterface';
 import { AuthorInterface } from '../interfaces/AuthorInterface';
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = ({ author, posts }) => {
+  const { theme } = useStore();
+
   return (
-    <div className={globalStyles.app} >
+    <div  >
       <Header title="" subtitle="" mainImage="" mainPage={false} />
       <Introduction author={author}/>
       <div className={styles.app__homeMain}>

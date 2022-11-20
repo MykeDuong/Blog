@@ -1,21 +1,43 @@
 .button {
   border-style: solid;
   border-width: 1px;
-  border-color: var(--grayBlack-color);
   display: flex;
-  background-color: var(--white-color);
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
+}
+
+.buttonLight {
+  border-color: var(--grayBlack-color);
+  background-color: var(--white-color);
 
   &:hover {
     background-color: var(--grayBlack-color);
-
+    
     .text {
       color: var(--lightGray-color);
     }
   }
 }
+
+.buttonDark {
+  border-color: var(--veryLightGray-color);
+  background-color: var(--darkTheme-color);
+
+  .text {
+    color: var(--white-color);
+  }
+
+  &:hover {
+    background-color: var(--white-color);
+    
+    .text {
+      color: var(--grayBlack-color);
+    }
+  }
+}
+
+
 
 .normal {
   height: 50px;
@@ -24,7 +46,6 @@
   .text {
     font-size: 0.9rem;
     text-transform: uppercase;
-    color: var(--grayBlack-color)
   }
 }
 

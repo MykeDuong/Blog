@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { NextComponentType } from 'next'
 
 import styles from './Button.module.scss'
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import useStore from '../../store';
 
 interface Props {
   text: string;
@@ -15,6 +15,7 @@ interface Props {
 
 const Button: NextComponentType<{}, {}, Props> = ({ type, text, subText, link, onClick }) => {
   const [clicked, setClicked] = useState(false);
+  const { theme } = useStore();
 
   const router = useRouter();
 
@@ -31,8 +32,8 @@ const Button: NextComponentType<{}, {}, Props> = ({ type, text, subText, link, o
   }
 
   return (
-      <button className={`${styles.button} ${type === "tag" ? styles.tag : styles.normal}`} onClick={handleClick}>
-        <p className={styles.text}>{(subText && clicked) ? subText : text}</p>
+      <button className={`${styles.button} ${type === "tag" ? styles.tag : styles.normal} ${theme ? styles.buttonLight : styles.buttonDark}`} onClick={handleClick}>
+        <p className={`${styles.text}`}>{(subText && clicked) ? subText : text}</p>
       </button>
   )
 }

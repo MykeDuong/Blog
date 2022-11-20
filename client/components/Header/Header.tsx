@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { NextComponentType } from 'next';
 import Image, { StaticImageData } from 'next/future/image';
 
+import useStore from '../../store';
 import styles from "./Header.module.scss";
 import globalStyles from '../../styles/Home.module.scss';
+import cssVar from "../../styles/variables.module.scss";
 import { images } from '../../constants';
+
 
 interface Props {
   title: string;
@@ -16,6 +19,11 @@ interface Props {
 }
 
 const Header: NextComponentType<{}, {}, Props> = ({ title, subtitle, mainPage=false, mainImage, color, fill=false }) => {
+
+  const { theme } = useStore();
+
+  const defaultColor = theme ? cssVar.whiteColor : cssVar.darkThemeColor;
+
   return (
     <div>
       <div className={`${styles.app__header} ${globalStyles.app__flex}`} style={fill ? {maxHeight: '100vh', minHeight: '100vh'} : {}} >
@@ -32,10 +40,10 @@ const Header: NextComponentType<{}, {}, Props> = ({ title, subtitle, mainPage=fa
             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
           </defs>
           <g className={styles.parallax}>
-            <use xlinkHref="#gentle-wave" x="48" y="0" fill={color ? color: 'rgba(255,255,255)' } fillOpacity='0.7' />
-            <use xlinkHref="#gentle-wave" x="48" y="3" fill={color ? color: 'rgba(255,255,255)' } fillOpacity='0.5'  />
-            <use xlinkHref="#gentle-wave" x="48" y="5" fill={color ? color: 'rgba(255,255,255)' } fillOpacity='0.3'  />
-            <use xlinkHref="#gentle-wave" x="48" y="7"  fill={color ? color: '#fff' }  />
+            <use xlinkHref="#gentle-wave" x="48" y="0" fill={color ? color : defaultColor } fillOpacity='0.7' />
+            <use xlinkHref="#gentle-wave" x="48" y="3" fill={color ? color: defaultColor } fillOpacity='0.5'  />
+            <use xlinkHref="#gentle-wave" x="48" y="5" fill={color ? color: defaultColor } fillOpacity='0.3'  />
+            <use xlinkHref="#gentle-wave" x="48" y="7"  fill={color ? color: defaultColor }  />
           </g>
         </svg>
       </div>

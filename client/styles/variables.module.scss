@@ -1,21 +1,34 @@
-$primary-color: #edf2f8;
-$secondary-color: #313bac;
+$white-color: #ffffff;
 $black-color: #030303;
+$brown-color: #46364a;
+
+$primary-color: #edf2f8;
+$highlight-color: #313bac;
+
+$veryLightGray-color: #ececec;
 $lightGray-color: #e4e4e4;
 $gray-color: #6b7688;
-$brown-color: #46364a;
-$white-color: #ffffff;
 $grayBlack-color: #444444;
-$veryLightGray-color: #ececec;
+
+$darkTheme-color: #28282B;
 
 :export {
-  primaryColor: $primary-color;
-  secondaryColor: $secondary-color;
-  grayBlackColor: $grayBlack-color;
+  // Basic colors
+  whiteColor: $white-color;
   blackColor: $black-color;
+  brownColor: $brown-color;
+  
+  // Highlight Color
+  // TODO: change primary
+  primaryColor: $primary-color;
+  highlightColor: $highlight-color;
+  
+  // Shades of Gray
+  veryLightGrayColor: $veryLightGray-color;
   lightGrayColor: $lightGray-color;
   grayColor: $gray-color;
-  brownColor: $brown-color;
-  whiteColor: $white-color;
-  veryLightGrayColor: $veryLightGray-color;
+  grayBlackColor: $grayBlack-color;
+
+  // Dark Theme colors
+  darkThemeColor: $darkTheme-color;
 }

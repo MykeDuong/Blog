@@ -1,39 +1,91 @@
 .app__contentList {
   border-left: solid;
-  border-color: var(--veryLightGray-color);
   border-width: 1px;
   padding-left: 1rem;
   padding-bottom: 2rem;
   position: -webkit-sticky; /* Safari & IE */
   position: sticky;
   top: 100px;
-  
-  .title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--gray-color);
-    text-transform: uppercase;
-    padding-top: 3px;
-  }
+}
+
+.app__contentListLight {
+  border-color: var(--veryLightGray-color);
+}
+
+.app__contentListDark {
+  border-color: var(--grayBlack-color);
 }
 
 .app__contentListTitle {
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  .title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding-top: 3px;
+  }
+  
+  svg {
+    color: var(--gray-color);
+  }
 }
 
+.app__contentListTitleLight {
+  .title {
+    color: var(--gray-color);
+  }
+
+  svg {
+    color: var(--gray-color);
+  }
+
+}
+
+.app__contentListTitleDark {
+  .title {
+    color: var(--veryLightGray-color);
+  }
+
+  svg {
+    color: var(--veryLightGray-color);
+  }
+}
 
 .app__contentListItems {
   padding-left: 4rem;
-  color: var(--grayBlack-color);
-
+  
   li {
     margin: 5px 0;
     a {
       text-decoration: none;
-      color: var(--grayBlack-color);
       transition: 0.2s;
+    }
+  }
+}
+
+.app__contentListItemsLight {
+  color: var(--grayBlack-color);
+  
+  li {
+    a {
+      color: var(--grayBlack-color);
+
+      &:hover {
+        border-bottom: 2px solid var(--gray-color);
+      }
+    }
+  }
+}
+
+.app__contentListItemsDark {
+  color: var(--gray-color);
+  
+  li {
+    a {
+      color: var(--gray-color);
 
       &:hover {
         border-bottom: 2px solid var(--gray-color);

@@ -10,9 +10,10 @@ import cssVar from '../../styles/variables.module.scss';
 import styles from './Contact.module.scss';
 import globalStyles from '../../styles/Home.module.scss';
 import Button from '../Button';
+import useStore from '../../store';
 
 const Contact: NextComponentType = () => {
-
+  const { theme } = useStore();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -26,9 +27,7 @@ const Contact: NextComponentType = () => {
 
   const handleSubmit = async () => {
 
-    if (!message) {
-      return;
-    }
+    if (!message) { return }
 
     setLoading(true);
 
@@ -39,24 +38,24 @@ const Contact: NextComponentType = () => {
       message: message
     }
 
-    const response = await fetch("/api/message", {
+    await fetch("/api/message", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(contact)
-    })
-      .then(() => {
-        setLoading(false);
-        setIsFormSubmitted(true);
-      });
+    }).then(() => {
+      setLoading(false);
+      setIsFormSubmitted(true);
+    });
+
   }
   
-  const color = cssVar.veryLightGrayColor;
+  const color = theme ? cssVar.veryLightGrayColor : cssVar.grayBlackColor;
 
   return (
-    <div>
-<div className={styles.app__headerWaveBox}>
+    <div className={styles.app__contact}>
+      <div className={styles.app__headerWaveBox}>
         <svg className={styles.waves} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
           <defs>
             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
@@ -69,10 +68,10 @@ const Contact: NextComponentType = () => {
           </g>
         </svg>
       </div>
-      <div className={styles.app__contact}>
-        <h2 className={` ${globalStyles.headText} ${styles.app__contactHeader}`}>Take a coffee and chat with me</h2>
+      <div className={`${styles.app__contactMain} ${theme ? styles.app__contactMainLight : styles.app__contactMainDark}`}>
+        <h2 className={` ${globalStyles.headText} ${styles.app__contactHeader} ${theme ? globalStyles.headTextLight : globalStyles.headTextDark}`}>Take a coffee and chat with me</h2>
 
-        <div className={styles.app__contactCards}>
+        <div className={`${styles.app__contactCards} ${theme ? styles.app__contactCardsLight : styles.app__contactCardsDark}`}>
           <div className={styles.app__contactCard}>
             <Image src={images.email} alt="email" />
             <a href="mailto:hongminh4402@gmail.com" className={globalStyles.pText}>hongminh4402@gmail.com</a>
@@ -84,7 +83,7 @@ const Contact: NextComponentType = () => {
         </div>
 
         {!isFormSubmitted ? (
-          <div className={`${styles.app__contactForm} ${globalStyles.app__flex}`}>
+          <div className={`${styles.app__contactForm} ${globalStyles.app__flex} ${theme ? styles.app__contactFormLight : styles.app__contactFormDark}`}>
             <div className={globalStyles.app__flex}>
               <input className={globalStyles.pText} type="text" placeholder="Your Name" name="name" value={name} onChange={handleChangeInput}/>
             </div>
@@ -101,11 +100,10 @@ const Contact: NextComponentType = () => {
               />
             </div>
             <button type="button" className={globalStyles.pText} onClick={handleSubmit}>{loading ? 'Sending' : 'Send Message'}</button>
-            {/* <Button text={'Send Message'} subText={'Sending'} onClick={handleSubmit} /> */}
           </div>
         ) : (
           <div className={styles.thankyou}>
-            <h3 className={`${globalStyles.headText}`}>Thank you for getting in touch!</h3>
+            <h3 className={`${globalStyles.headText} ${theme ? globalStyles.headTextLight : globalStyles.headTextDark}`}>Thank you for getting in touch!</h3>
           </div>
         )}
       </div>

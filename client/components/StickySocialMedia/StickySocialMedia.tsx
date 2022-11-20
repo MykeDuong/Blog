@@ -3,11 +3,15 @@ import React from 'react';
 import { BsLinkedin, BsGithub } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 
+import useStore from '../../store';
+
 import styles from "./StickySocialMedia.module.scss";
 
 const StickySocialMedia: NextComponentType = () => {
+  const { theme } = useStore();
+  
   return (
-    <div className={styles.app__stickySocial}>
+    <div className={`${styles.app__stickySocial} ${theme ? styles.app__stickySocialLight : styles.app__stickySocialDark}`}>
       <a href="https://github.com/MykeDuong" target="_blank" rel="noreferrer">
         <BsGithub />
       </a>

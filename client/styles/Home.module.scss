@@ -1,14 +1,17 @@
 .app {
-  background-color: var(--white-color);
   font-family: var(--font-base);
   width: 100%;
-
-  @media screen and (max-width: 700px){
-    width: 100%;
-    
-  }
-}
   
+}
+
+.appLight {
+  background-color: var(--white-color);
+}
+
+.appDark {
+  background-color: var(--darkTheme-color);
+}
+
 .app__whitebg {
   background-color: var(--white-color);
 }
@@ -61,31 +64,49 @@
   font-size: 2.75rem;
   font-weight: 800;
   text-align: center;
-  color: var(--grayBlack-color);
   text-transform: capitalize;
+  
+  @media screen and (min-width: 2000px) {
+    font-size: 4rem;
+  }
+  
+  @media screen and (max-width: 450px) {
+    font-size: 2rem;
+  }
+}
+
+.headTextLight {
+  color: var(--grayBlack-color);
 
   span {
     color: var(--secondary-color);
   }
+}
 
-  @media screen and (min-width: 2000px) {
-    font-size: 4rem;
-  }
-
-  @media screen and (max-width: 450px) {
-    font-size: 2rem;
+.headTextDark {
+  color: var(--veryLightGray-color);
+  
+  span {
+    color: var(--secondary-color);
   }
 }
 
 .pText {
   font-size: 0.8rem;
   text-align: left;
-  color: var(--gray-color);
   line-height: 1.5;
 
   @media screen and (min-width: 2000px) {
     font-size: 1.75rem;
   }
+}
+
+.pTextLight {
+  color: var(--gray-color)
+}
+
+.pTextDark {
+  color: var(--white-color);
 }
 
 .boldText {
@@ -103,64 +124,21 @@
   }
 }
   
-.app__social {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-
-  padding: 1rem;
-
-  a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--white-color);
-    margin: 0.25rem 0;
-    border: 1px solid var(--lightGray-color);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: all 0.3s ease-in-out;
-
-    svg {
-      width: 15px;
-      height: 15px;
-      color: var(--gray-color);
-    }
-
-    &:hover {
-      background-color: var(--secondary-color);
-      border-color: var(--secondary-color);
-
-      svg {
-        color: var(--white-color);
-      }
-    }
-
-    @media screen and (min-width: 2000px) {
-      width: 70px;
-      height: 70px;
-
-      margin: 0.5rem 0;
-
-      svg {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  }
-}
-
-.app__anchor {
+.app__anchorText {
   text-decoration: none;
   border-bottom: 2px solid var(--lightGray-color);
   transition: 0.2s;
   &:hover {
     border-bottom: 2px solid var(--gray-color);
   }
+}
+
+.app__anchorTextLight {
+  color: var(--grayBlack-color);
+}
+
+.app__anchorTextDark {
+  color: var(--white-color);
 }
 
 @media screen and (max-width: 600px) {
