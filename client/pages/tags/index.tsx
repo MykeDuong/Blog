@@ -17,7 +17,7 @@ const Tags: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ tags }
   const { theme } = useStore();
   return (
     <div className={globalStyles.app} >
-      <Header title="Tags" subtitle="Right now, what I know" mainPage={true} mainImage="tagIMG" color={theme ? cssVar.alternativeColor: cssVar.grayBlackColor} />
+      <Header title="Tags" subtitle="Right now, what I know" mainPage={true} mainImage="tagIMG" color={theme ? cssVar.whiteColor: cssVar.darkThemeColor} />
       <div className={styles.app__tagMain}>
         <div className={styles.app__tagList}>
           {tags.map((tag: TagInterface) => <Button text={tag.title} type={'tag'} link={`#${tag.title}`} key={`button of ${tag.title}`} />)}
