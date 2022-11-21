@@ -10,12 +10,18 @@ import globalStyles from '../../../styles/Home.module.scss';
 import { NextComponentType } from 'next';
 import WorkInterface from '../../../interfaces/WorkInterface';
 import Image from 'next/future/image';
+import useStore from '../../../store';
 
 const Work: NextComponentType<{}, {}, { works: WorkInterface[] } > = ({ works }) => {
 
+  const { theme } = useStore();
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [filterWork, setFilterWork] = useState([...works]);
+
+  // For styling
+  const activeItemStyle = theme ? styles.itemActive : styles.itemActiveDark;
+  const themeItemStyle = theme ? `${styles.app__workFilterItemLight} ${globalStyles.pTextLight}` : `${styles.app__workFilterItemDark} ${globalStyles.pTextDark}` 
 
   const handleWorkFilter = (item: string) => {
     setActiveFilter(item);
@@ -33,16 +39,16 @@ const Work: NextComponentType<{}, {}, { works: WorkInterface[] } > = ({ works })
   }
 
   return (
-    <PortfolioWrap idName={'work'} classNames={globalStyles.app__primarybg}>
+    <PortfolioWrap idName={'work'} classNames={`${theme ? globalStyles.app__alternativebg : globalStyles.app__alternativebgDark}`}>
       <div>
-        <h2 className={globalStyles.headText}>My Creative <span>Portfolio </span>Section</h2>
+        <h2 className={`${globalStyles.headText} ${theme ? globalStyles.headTextLight : globalStyles.headTextDark}`}>My Creative <span>Portfolio </span>Section</h2>
     
-        <div className={styles.app__workFilter}>
+        <div className={`${styles.app__workFilter}`}>
           {['Web Application', 'Mobile Application', 'Desktop Application', 'All'].map((item, index) => (
             <div 
               key={index}
               onClick={() => handleWorkFilter(item)}
-              className={`${styles.app__workFilterItem} ${globalStyles.app__flex} ${globalStyles.pText} ${activeFilter === item ? styles.itemActive : ''}`}
+              className={`${styles.app__workFilterItem} ${globalStyles.app__flex} ${globalStyles.pText} ${themeItemStyle} ${activeFilter === item ? activeItemStyle : ''}`}
             >
               {item}
             </div>
@@ -55,7 +61,7 @@ const Work: NextComponentType<{}, {}, { works: WorkInterface[] } > = ({ works })
           className={styles.app__workPortfolio}
         >
           {filterWork.map((work, index) => (
-            <div className={`${styles.app__workItem} ${globalStyles.app__flex}`} key={index}>
+            <div className={`${styles.app__workItem} ${globalStyles.app__flex} ${theme ? styles.app__workItemLight : styles.app__workItemDark}`} key={index}>
               <div className={`${styles.app__workImg} ${globalStyles.app__flex}`}>
                 <Image src={urlFor(work.imgUrl).url()} alt={work.title} fill />
           
@@ -93,8 +99,8 @@ const Work: NextComponentType<{}, {}, { works: WorkInterface[] } > = ({ works })
                 <h4 className={globalStyles.boldText}>{work.title}</h4>
                 <p className={globalStyles.pText} style={{ marginTop: 10 }}>{work.description}</p>
           
-                <div className={`${styles.app__workTypes} ${globalStyles.app__flex}`}>
-                  <p className={globalStyles.pText}>{work.types[0]}</p>
+                <div className={`${styles.app__workTypes} ${globalStyles.app__flex} ${theme ? styles.app__workTypesLight : styles.app__workTypesDark}`}>
+                  <p className={`${globalStyles.pText} ${theme ? globalStyles.pTextLight : globalStyles.pTextDark}`}>{work.types[0]}</p>
                 </div>
               </div>
             </div>

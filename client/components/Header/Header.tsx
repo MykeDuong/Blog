@@ -26,7 +26,7 @@ const Header: NextComponentType<{}, {}, Props> = ({ title, subtitle, mainPage=fa
 
   return (
     <div>
-      <div className={`${styles.app__header} ${globalStyles.app__flex}`} style={fill ? {maxHeight: '100vh', minHeight: '100vh'} : {}} >
+      <div className={`${styles.app__header} ${globalStyles.app__flex}`}  >
         {mainPage ?
           <Image className={styles.app__headerImage} src={mainImage !== '' ? images[`${mainImage}` as keyof typeof images] : images.bgIMG } alt="main image" fill /> :
           <Image className={styles.app__headerImage} src={mainImage !== '' ? mainImage : images.bgIMG } alt="main image" fill />

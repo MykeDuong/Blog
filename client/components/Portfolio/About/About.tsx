@@ -9,12 +9,14 @@ import styles from  './About.module.scss';
 import globalStyles from '../../../styles/Home.module.scss';
 import { NextComponentType } from 'next';
 import DomainInterface from '../../../interfaces/DomainInterface';
+import useStore from '../../../store';
 
 const About: NextComponentType<{}, {}, { domains: DomainInterface[] }> = ({ domains }) => {
+  const { theme } = useStore();
   return (
-    <PortfolioWrap idName={'about'} classNames={globalStyles.app__whitebg}>
+    <PortfolioWrap idName={'about'} classNames={`${theme ? globalStyles.appLight : globalStyles.appDark}`}>
     <div className={`${styles.app__about} ${globalStyles.app__flex}`}>
-      <h2 className={globalStyles.headText}>I know that <span>Good Applications</span><br />mean <span>Good Businesses</span></h2>
+      <h2 className={`${globalStyles.headText} ${theme ? globalStyles.headTextLight : globalStyles.headTextDark}`}>I know that <span>Good Technology</span><br />makes <span>Good Businesses</span></h2>
 
       <div className={styles.app__domains}>
         {domains.map((domain, index) => (
@@ -28,8 +30,8 @@ const About: NextComponentType<{}, {}, { domains: DomainInterface[] }> = ({ doma
             <div>
               <Image src={urlFor(domain.image).url()} alt={domain.title} fill={true}  />
             </div>
-            <h2 className={globalStyles.boldText} style={{ marginTop: 20 }}>{domain.title}</h2>
-            <p className={globalStyles.pText} style={{ marginTop: 10 }}>{domain.description}</p>
+            <h2 className={`${globalStyles.boldText} ${theme ? globalStyles.boldTextLight : globalStyles.boldTextDark}`} style={{ marginTop: 20, textAlign: 'center', width: '100%' }}>{domain.title}</h2>
+            <p className={`${globalStyles.pText} ${theme ? globalStyles.pTextLight : globalStyles.pTextDark}`} style={{ marginTop: 10, textAlign: 'center' }}>{domain.description}</p>
           </motion.div>
         ))}
       </div>

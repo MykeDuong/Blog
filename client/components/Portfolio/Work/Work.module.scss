@@ -11,33 +11,51 @@
   align-items: center;
   flex-wrap: wrap;
 
-  margin: 4rem 0 2rem;
+  margin: 4rem 0 2rem;  
+}
 
-  .app__workFilterItem {
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      background-color: #fff;
-      color: #000;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      margin: 0.5rem;
+.app__workFilterItem {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0.5rem;
 
-      &:hover {
-          background-color: var(--secondary-color);
-          color: #fff
-      }
-
-      @media screen and (min-width: 2000px) {
-          padding: 1rem 2rem;
-          border-radius: 0.85rem;
-      }
+  @media screen and (min-width: 2000px) {
+      padding: 1rem 2rem;
+      border-radius: 0.85rem;
   }
+}
 
-  .itemActive {
-      background-color: var(--secondary-color);
-      color: #fff
+.app__workFilterItemLight {
+  background-color: #fff;
+  color: #000;
+
+  &:hover {
+    background-color: var(--highlight-color);
+    color: #fff
   }
+}
+
+.app__workFilterItemDark {
+  background-color: var(--darkTheme-color);
+  color: var(--lightGray-color);
+
+  &:hover {
+    background-color: var(--highlightDark-color);
+    color: #fff
+  }
+}
+
+.itemActive {
+  background-color: var(--highlight-color);
+  color: #fff
+}
+
+.itemActiveDark {
+  background-color: var(--highlightDark-color);
+  color: #fff;
 }
 
 .app__workPortfolio {
@@ -46,33 +64,47 @@
   justify-content: center;
   align-items: center;
 
-  .app__workItem {
-      width: 270px;
-      flex-direction: column;
+  
+}
 
-      margin: 2rem;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      background-color: #fff;
-      color: #000;
+.app__workItem {
+  width: 270px;
+  flex-direction: column;
 
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
-      &:hover {
-          box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-      }
 
-      @media screen and (min-width: 2000px) {
-          witdh: 470px;
-          padding: 0.25rem;
-          border-radius: 0.75rem;
-      }
+  @media screen and (min-width: 2000px) {
+      witdh: 470px;
+      padding: 0.25rem;
+      border-radius: 0.75rem;
+  }
 
-      @media screen and (max-width: 300px) {
-          width: 100%;
-          margin: 1rem;
-      }
+  @media screen and (max-width: 300px) {
+      width: 100%;
+      margin: 1rem;
+  }
+}
+
+.app__workItemLight {
+  background-color: #fff;
+  color: #000;
+
+  &:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.app__workItemDark {
+  background-color: var(--darkTheme-color);
+  color: var(--veryLightGray-color);
+
+  &:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -138,12 +170,19 @@
       margin-top: 1rem;
       line-height: 1.5;
   }
+}
 
-  .app__workTypes {
-      position: absolute;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      background-color: #fff;
-      top: -25px;
-  }
+.app__workTypes {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  top: -25px;
+}
+
+.app__workTypesLight {
+  background-color: var(--white-color);
+}
+
+.app__workTypesDark {
+  background-color: var(--darkTheme-color);
 }

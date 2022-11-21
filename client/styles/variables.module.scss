@@ -2,7 +2,7 @@ $white-color: #ffffff;
 $black-color: #030303;
 $brown-color: #46364a;
 
-$primary-color: #edf2f8;
+$alternative-color: #edf2f8;
 $highlight-color: #313bac;
 
 $veryLightGray-color: #ececec;
@@ -11,6 +11,7 @@ $gray-color: #6b7688;
 $grayBlack-color: #444444;
 
 $darkTheme-color: #28282B;
+$highlightDark-color: #ab20fd;
 
 :export {
   // Basic colors
@@ -19,8 +20,8 @@ $darkTheme-color: #28282B;
   brownColor: $brown-color;
   
   // Highlight Color
-  // TODO: change primary
-  primaryColor: $primary-color;
+  // TODO: change alternative
+  alternativeColor: $alternative-color;
   highlightColor: $highlight-color;
   
   // Shades of Gray
@@ -31,4 +32,5 @@ $darkTheme-color: #28282B;
 
   // Dark Theme colors
   darkThemeColor: $darkTheme-color;
+  highlightDarkColor: $highlightDark-color;
 }

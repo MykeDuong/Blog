@@ -5,11 +5,19 @@
 .app__sectionHeader {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.app__sectionHeaderLight {
   color: var(--grayBlack-color);
+
+}
+
+.app__sectionHeaderDark {
+  color: var(--veryLightGray-color);
+
 }
 
 .app__sectionBody {
-  color: var(--grayBlack-color);
 
   h2 {
     margin-top: 20px;
@@ -29,9 +37,24 @@
   ul {
     margin-left: 30px;
     
-    color: var(--grayBlack-color);
     font-size: 1.1rem;
     margin-bottom: 20px;
+  }
+}
+
+.app__sectionBodyLight {
+  color: var(--grayBlack-color);
+  ul {
+    color: var(--grayBlack-color);
+
+  }
+}
+
+.app__sectionBodyDark {
+  color: var(--lightGray-color);
+  ul {
+    color: var(--lightGray-color);
+
   }
 }
 
@@ -50,8 +73,34 @@
   }
 }
 
+.app__sectionLinkLight {
+  color: var(--grayBlack-color);
+  border-bottom: 2px solid var(--lightGray-color);
+
+  &:hover {
+    border-bottom: 2px solid var(--gray-color);
+  }
+}
+
+.app__sectionLinkDark {
+  color: var(--lightGray-color);
+  border-bottom: 2px solid var(--gray-color);
+
+  &:hover {
+    border-bottom: 2px solid var(--lightGray-color);
+  }
+}
+
 .app__sectionCode { 
-  background-color: var(--lightGray-color);
   border-radius: 5px;
   padding: 0 3px 0;
+}
+
+.app__sectionCodeLight {
+  background-color: var(--lightGray-color);
+
+}
+
+.app__sectionCodeDark {
+  background-color: var(--black-color);
 }

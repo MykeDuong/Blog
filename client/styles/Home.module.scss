@@ -1,6 +1,8 @@
 .app {
   font-family: var(--font-base);
   width: 100%;
+
+  transition: background-color 0.3 ease-in-out;
   
 }
 
@@ -12,12 +14,12 @@
   background-color: var(--darkTheme-color);
 }
 
-.app__whitebg {
-  background-color: var(--white-color);
+.app__alternativebg {
+  background-color: var(--alternative-color);
 }
 
-.app__primarybg {
-  background-color: var(--primary-color);
+.app__alternativebgDark {
+  background-color: var(--grayBlack-color);
 }
 
 .app__container {
@@ -56,7 +58,6 @@
 
   p {
     text-transform: uppercase;
-    color: var(--black-color);
   }
 }
   
@@ -79,7 +80,7 @@
   color: var(--grayBlack-color);
 
   span {
-    color: var(--secondary-color);
+    color: var(--highlight-color);
   }
 }
 
@@ -87,7 +88,7 @@
   color: var(--veryLightGray-color);
   
   span {
-    color: var(--secondary-color);
+    color: 	var(--highlightDark-color);
   }
 }
 
@@ -106,13 +107,12 @@
 }
 
 .pTextDark {
-  color: var(--white-color);
+  color: var(--lightGray-color);
 }
 
 .boldText {
   font-size: 1rem;
   font-weight: 800;
-  color: var(--black-color);
   text-align: left;
 
   @media screen and (min-width: 2000px) {
@@ -123,7 +123,15 @@
     font-size: 0.9rem;
   }
 }
-  
+
+.boldTextLight {
+  color: var(--black-color);
+}
+
+.boldTextDark {
+  color: var(--veryLightGray-color)
+}
+
 .app__anchorText {
   text-decoration: none;
   border-bottom: 2px solid var(--lightGray-color);

@@ -13,16 +13,18 @@ import SkillInterface from '../../interfaces/SkillInterface'
 import styles from './Portfolio.module.scss';
 import globalStyles from '../../styles/Home.module.scss';
 
-import { Profile, About, Work, Skills, Contact } from '../../components/Portfolio';
-import NavBar from '../../components/NavBar/NavBar';
+import { Profile, About, Work, Skills } from '../../components/Portfolio';
 import Header from '../../components/Header/Header';
+import useStore from '../../store';
 
 const Portfolio: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = ({ author, domains, experiences, skills, works }) => {
-  
+ 
+  const { theme } = useStore();
+
   return (
     <div className={globalStyles.app}>
       <div className={styles.app__portfolio}>
-      <Header title={'Portfolio'} subtitle={'My Coding Journey'} mainPage={false} mainImage={images.portfolioIMG} color={cssVar.primaryColor}/>
+      <Header title={'Portfolio'} subtitle={'My Coding Journey'} mainPage={false} mainImage={images.portfolioIMG} color={theme ? cssVar.alternativeColor: cssVar.grayBlackColor}/>
       <Profile author={author} />
       <About domains={domains}/>
       <Work works={works} />

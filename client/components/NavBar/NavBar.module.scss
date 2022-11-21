@@ -5,17 +5,41 @@
   align-items: center;
 
   padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  position: sticky;
+  position: fixed;
+//   position: -webkit-sticky;
   top: 0;
   z-index: 5;
 
   transition-property: all; 
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
+
+  svg {
+    position: relative;
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: 900px) {
+        display: none;
+    }
+  }
+}
+
+
+.app__navbarLight {
+    background: rgba(255, 255, 255, 0.25);
+    svg {
+        color: var(--gray-color);
+    }
+}
+
+.app__navbarDark {
+    background: rgba(0, 0, 0, 0.25);
+    svg {
+        color: var(--gray-color);
+    }
 }
 
 .hide {
@@ -64,7 +88,6 @@
         }
 
         a {
-            color: var(--gray-color);
             text-decoration: none;
 
             flex-direction: column;
@@ -72,6 +95,22 @@
             font-weight: 500;
 
             transition: all 0.2s ease-in-out;
+
+            
+        }
+
+        
+    }
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+}
+
+.app__navbarLinksLight {
+    li {
+        a {
+            color: var(--gray-color);
 
             &:hover {
                 color: var(--grayBlack-color);
@@ -84,28 +123,34 @@
             }
         }
     }
+}
 
-    @media screen and (max-width: 900px) {
-        display: none;
+.app__navbarLinksDark {
+    li {
+        a {
+            color: var(--gray-color);
+
+            &:hover {
+                color: var(--lightGray-color);
+            }
+        }
+
+        &:hover {
+            div {
+                background: var(--lightGray-color);
+            }
+        }
     }
 }
 
 .app__navbarMenu {
     width: 35px;
     height: 35px;
-    border-radius: 50%;
     position: relative;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    svg {
-        width: 70%;
-        height: 70%;
-
-        color: var(--gray-color);
-    }
 
     div {
         position: fixed;
@@ -124,20 +169,17 @@
 
         flex-direction: column;
 
-        background-color: var(--white-color);
 
         background-size: cover;
 
         background-repeat: repeat;
         overflow: hidden;
 
-        box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
 
         svg {
             width: 35px;
             height: 35px;
 
-            color: var(--grayBlack-color);
             margin: 0.5rem 1rem;
         }
 
@@ -159,16 +201,13 @@
                 margin: 1rem;
 
                 a {
-                    color: var(--gray-color);
                     text-decoration: none;
                     font-size: 1rem;
                     text-transform: uppercase;
                     font-weight: 500;
                     transition: all 0.2s ease-in-out;
 
-                    &:hover {
-                        color: var(--grayBlack-color);
-                    }
+                    
                 }
             }
         }
@@ -180,5 +219,55 @@
 
     @media screen and (min-width: 900px) {
         display: none;
+    }
+}
+
+.app__navbarMenuLight {
+    svg {
+        color: var(--gray-color)
+    }
+
+    div {
+        background-color: var(--white-color);
+        box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
+
+        ul {
+            li {
+                a {
+                    color: var(--gray-color);
+
+                    &:hover {
+                        color: var(--grayBlack-color);
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.app__navbarMenuDark {
+
+    div {
+        background-color: var(--grayBlack-color);
+        box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
+
+        svg {
+            color: var(--lightGray-color);
+
+        }
+
+        ul {
+            li {
+                a {
+                    color: var(--lightGray-color);
+
+                    &:hover {
+                        color: var(--lightGray-color);
+                    }
+                }
+            }
+        }
+
     }
 }

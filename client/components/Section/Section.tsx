@@ -9,6 +9,7 @@ import React from 'react'
 
 import styles from './Section.module.scss';
 import { unknownListStyleWarning } from '@portabletext/react/src/warnings';
+import useStore from '../../store';
 
 Refractor.registerLanguage(js);
 Refractor.registerLanguage(typescript);
@@ -21,6 +22,9 @@ interface Props {
   slug: string;
   language?: string;
 }
+
+// Var
+let curTheme: boolean = true;
 
 // Types
 const NormalComponent: PortableTextBlockComponent = ({children}) => {
@@ -45,12 +49,12 @@ const H4Component: PortableTextBlockComponent = ({children}) => {
 
 // Marks
 const CodeComponent: PortableTextMarkComponent = ({children}) => {
-  return <code className={styles.app__sectionCode}>{children}</code>
+  return <code className={`${styles.app__sectionCode} ${curTheme ? styles.app__sectionCodeLight : styles.app__sectionCodeDark}`}>{children}</code>
 }
 
 const LinkComponent: PortableTextMarkComponent = ({children, value}) => {
   const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
-  return <a href={value.href} rel={rel} className={styles.app__sectionLink}>{children}</a>
+  return <a href={value.href} rel={rel} className={`${styles.app__sectionLink} ${curTheme ? styles.app__sectionLinkLight : styles.app__sectionLinkDark}`}>{children}</a>
 }
 
 // Code
@@ -105,10 +109,14 @@ const PortableTextComponent = {
 
 
 const Section: NextComponentType<{}, {}, Props> = ({ title, body, slug }) => {
+  const { theme } = useStore();
+
+  curTheme = theme;
+
   return (
     <div id={slug} className={styles.app__section}>
-      <h1 className={styles.app__sectionHeader}>{title}</h1>
-      <div className={styles.app__sectionBody}>
+      <h1 className={`${styles.app__sectionHeader} ${theme ? styles.app__sectionHeaderLight : styles.app__sectionHeaderDark}`}>{title}</h1>
+      <div className={`${styles.app__sectionBody} ${theme ? styles.app__sectionBodyLight : styles.app__sectionBodyDark}`}>
         <PortableText value={ body } components={ PortableTextComponent } />
       </div>
     </div>

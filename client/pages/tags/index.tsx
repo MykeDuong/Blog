@@ -5,6 +5,8 @@ import { AiFillTag } from 'react-icons/ai'
 import Header from '../../components/Header/Header';
 import styles from './Tag.module.scss';
 import globalStyles from '../../styles/Home.module.scss';
+import cssVar from '../../styles/variables.module.scss';
+
 import client from '../../client';
 import TagInterface from '../../interfaces/TagInterface';
 import Button from '../../components/Button/Button';
@@ -15,7 +17,7 @@ const Tags: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ tags }
   const { theme } = useStore();
   return (
     <div className={globalStyles.app} >
-      <Header title="Tags" subtitle="Right now, what I know" mainPage={true} mainImage="tagIMG" />
+      <Header title="Tags" subtitle="Right now, what I know" mainPage={true} mainImage="tagIMG" color={theme ? cssVar.alternativeColor: cssVar.grayBlackColor} />
       <div className={styles.app__tagMain}>
         <div className={styles.app__tagList}>
           {tags.map((tag: TagInterface) => <Button text={tag.title} type={'tag'} link={`#${tag.title}`} key={`button of ${tag.title}`} />)}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import StickySocialMedia from '../../StickySocialMedia'
 
 import useStore, { StateInterface } from '../../../store';
@@ -14,23 +14,33 @@ import { MdLightMode } from 'react-icons/md'
 interface PropsInterface {
   children: JSX.Element|JSX.Element[];
   idName?: string;
-  classNames?: string;
 }
 
-const AppWrap = ({ children, idName, classNames}: PropsInterface) => {
+const AppWrap = ({ children, idName }: PropsInterface) => {
   const { theme, changeTheme } = useStore();
 
+  const [isHydrated, setIsHydrated] = useState(false);
+
+    //Wait till NextJS rehydration completes
+    useEffect(() => {
+        setIsHydrated(true);
+    }, []);
+
   return (
-    <div id={idName} className={`${globalStyles.app} ${classNames} ${theme ? globalStyles.appLight : globalStyles.appDark}`}>
-      <NavBar />
-      <StickySocialMedia />
-      {children}
-      <Contact />
-      {/* Change theme button */}
-      <button className={`${styles.themeIcon} ${theme ? styles.themeIconLight : styles.themeIconDark}`} onClick={changeTheme}>
-        <MdLightMode />
-      </button>
-    </div>
+    <>
+      {!isHydrated ? <div /> : 
+        <div id={idName} className={`${globalStyles.app} ${styles.app__wrap} ${theme ? globalStyles.appLight : globalStyles.appDark}`}>
+          <NavBar />
+          <StickySocialMedia />
+          {children}
+          <Contact />
+          {/* Change theme button */}
+          <button className={`${styles.themeIcon} ${theme ? styles.themeIconLight : styles.themeIconDark}`} onClick={changeTheme}>
+            <MdLightMode />
+          </button>
+        </div>
+      }
+    </>
   )
 
 }

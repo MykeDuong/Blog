@@ -8,6 +8,7 @@ import styles from './NavBar.module.scss';
 import globalStyles from '../../styles/Home.module.scss'
 import { NextComponentType } from 'next';
 import Link from 'next/link';
+import useStore from '../../store';
 
 const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -32,7 +33,7 @@ const useScrollDirection = () => {
   return scrollDirection;
 };
 
-const BurgerBarVariants = {
+const MenuVariants = {
   initial: {
     x: "110vw",
     opacity: 0.5,
@@ -56,43 +57,47 @@ const BurgerBarVariants = {
 }
 
 const NavBar: NextComponentType = () => {
-  const [toggle, setToggle] = useState(false);
-  const scrollDirection = useScrollDirection()
+  const { theme } = useStore();
 
+  const [toggle, setToggle] = useState(false);
+  const scrollDirection = useScrollDirection();
 
   return (
-    <nav className={`${styles.app__navbar} ${ scrollDirection === "down" ? styles.hide : "show"}`}>
-      <div className={styles.app__navbarLogo}>
-        <Link href='/'><div><Image src={images.logo} alt='logo' /></div></Link>
-      </div>
-      <ul className={styles.app__navbarLinks}>
-        { ['home', 'portfolio', 'tags'].map((item) => (
-          <li className={`${globalStyles.pText} ${globalStyles.app__flex}`} key={`link-${item}`} >
-            <div />
-            <Link href={`/${item}`}>{item}</Link>
-          </li>
-        )) }
-      </ul>
+    <div style={{height: 0}}>
+      <nav className={`${styles.app__navbar} ${theme ? styles.app__navbarLight : styles.app__navbarDark} ${ scrollDirection === "down" ? styles.hide : ''}`}>
+        <div className={styles.app__navbarLogo}>
+          <Link href='/'><div><Image src={images.logo} alt='logo' /></div></Link>
+        </div>
+        <ul className={`${styles.app__navbarLinks} ${theme ? styles.app__navbarLinksLight : styles.app__navbarLinksDark}`}>
+          {['home', 'portfolio', 'tags'].map((item) => (
+            <li className={`${globalStyles.pText} ${globalStyles.app__flex}`} key={`link-${item}`} >
+              <div />
+              <Link href={`/${item === 'home' ? '' : item}`}>{item}</Link>
+            </li>
+          ))}
+        </ul>
 
-      <div className={styles.app__navbarMenu}>
-          <HiMenu onClick={() => setToggle(true)} />
+        <HiMenu onClick={() => setToggle(true)}/>
+
           
-          {toggle && (
-            <motion.div
-              variants={BurgerBarVariants}
-            >
-              <HiX onClick={() => setToggle(false)}/>
-              <ul>
-                { ['home', 'portfolio', 'tags'].map((item) => (
-                  <li key={item} >
-                    <Link href={`/${item}`}><a  onClick={() => setToggle(false)}>{item}</a></Link>
-                  </li>
-                )) }
-              </ul>
-            </motion.div>
-          )}
-      </div>
-    </nav>
+      </nav>
+      <div className={`${styles.app__navbarMenu} ${theme ? styles.app__navbarMenuLight : styles.app__navbarMenuDark}`}>
+      {toggle && (
+        <motion.div
+          variants={MenuVariants}
+        >
+          <HiX onClick={() => setToggle(false)}/>
+          <ul>
+            { ['home', 'portfolio', 'tags'].map((item) => (
+              <li key={item} >
+                <Link href={`/${item === 'home' ? '' : item}`}><a  onClick={() => setToggle(false)}>{item}</a></Link>
+              </li>
+            )) }
+          </ul>
+        </motion.div>
+      )}
+  </  div>
+  </div>
   )
 }
 

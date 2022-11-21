@@ -47,35 +47,48 @@
   flex-direction: column;
 
   .badgeCmp, .tagCmp {
-      padding: 1rem 2rem;
-      border: var(--white-color);
-      border-radius: 15px;
-      flex-direction: row;
-      width: auto;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    flex-direction: row;
+    width: auto;
   }
 
   .tagCmp {
-      flex-direction: column;
-      margin-top: 3rem;
+    flex-direction: column;
+    margin-top: 3rem;
 
-      p {
-          width: 100%;
-          text-align: right;
-      }
+    p {
+      width: 100%;
+      text-align: right;
+    }
   }
 
   span {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
 
-      @media screen and (min-width: 2000px) {
-          font-size: 5rem;
-      }
+    @media screen and (min-width: 2000px) {
+        font-size: 5rem;
+    }
   }
 
   @media screen and (max-width: 1200px) {
-      justify-content: flex-start;
-      align-items: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.app__headerBadgeLight {
+  .badgeCmp, .tagCmp {
+    border: var(--white-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.app__headerBadgeDark {
+  .badgeCmp, .tagCmp {
+    border: var(--white-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background-color: var(--grayBlack-color);
   }
 }
 
@@ -129,21 +142,21 @@
   }
 
   @media screen and (min-width: 2000px) {
-      div:nth-child(1) {
-          width: 200px;
-          height: 200px;
+    div:nth-child(1) {
+      width: 200px;
+      height: 200px;
   
-      }
+    }
   
-      div:nth-child(2) {
-          width: 300px;
-          height: 300px;   
-      }
+    div:nth-child(2) {
+      width: 300px;
+      height: 300px;   
+    }
   
-      div:nth-child(3) {
-          width: 140px;
-          height: 140px;
-      }
+    div:nth-child(3) {
+      width: 140px;
+      height: 140px;
+    }
   }
 
   @media screen and (max-width: 1200px) {
@@ -154,8 +167,22 @@
       margin-left: 0;
 
       div {
-          margin: 1rem;
+        margin: 1rem;
       }
+  }
+}
+
+.app__headerCirclesLight {
+  div {
+    background: var(--white-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.app__headerCirclesDark {
+  div {
+    background: var(--grayBlack-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
 }
 

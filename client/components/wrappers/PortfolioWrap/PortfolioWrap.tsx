@@ -5,8 +5,9 @@ import NavigationDots from '../../NavigationDots/NavigationDots';
 import StickySocialMedia from '../../StickySocialMedia';
 
 
-
+import cssVar from '../../../styles/variables.module.scss';
 import globalStyles from '../../../styles/Home.module.scss';
+import useStore from '../../../store';
 
 interface PropsInterface {
   children: JSX.Element|JSX.Element[];
@@ -15,6 +16,7 @@ interface PropsInterface {
 }
 
 const PortfolioWrap = ({ children, idName, classNames}: PropsInterface) => {
+  const { theme } = useStore();
   return (
     <div id={idName} className={`${globalStyles.app__container} ${classNames}`}>
         <motion.div
@@ -24,8 +26,8 @@ const PortfolioWrap = ({ children, idName, classNames}: PropsInterface) => {
         >
           {children}
         <div className={globalStyles.copyright}>
-          <p className={globalStyles.pText}>@2022 Minh Duong</p>
-          <p className={globalStyles.pText}>All rights reserved</p>
+          <p className={`${globalStyles.pText}`} style={theme ? { color: cssVar.grayBlackColor} : { color: cssVar.lightGrayColor }}>@2022 Minh Duong</p>
+          <p className={`${globalStyles.pText}`} style={theme ? { color: cssVar.grayBlackColor} : { color: cssVar.lightGrayColor }}>All rights reserved</p>
         </div>
         </motion.div>
       <NavigationDots active={idName} />

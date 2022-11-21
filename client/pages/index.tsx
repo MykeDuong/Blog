@@ -4,6 +4,7 @@ import client from '../client';
 
 import globalStyles from '../styles/Home.module.scss';
 import styles from './Root.module.scss';
+import cssVar from '../styles/variables.module.scss';
 
 import useStore from '../store';
 import Header from '../components/Header/Header';
@@ -19,7 +20,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>, {}> = ({ au
 
   return (
     <div  >
-      <Header title="" subtitle="" mainImage="" mainPage={false} />
+      <Header title="" subtitle="" mainImage="" mainPage={false}  />
       <Introduction author={author}/>
       <div className={styles.app__homeMain}>
         <Contents contents={posts} />

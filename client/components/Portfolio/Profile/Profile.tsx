@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/future/image'
 
+import useStore from '../../../store';
 import { images } from '../../../constants';
 import { PortfolioWrap } from '../../wrappers';
-
 import styles from './Profile.module.scss';
 import globalStyles from '../../../styles/Home.module.scss';
 import { NextComponentType } from 'next';
@@ -16,6 +16,7 @@ export interface PropsInterface {
 }
 
 const Profile: NextComponentType<{}, {}, PropsInterface> = ({ author }) => {
+  const { theme } = useStore();
 
   const scaleVariants= {
     whileInView: {
@@ -29,30 +30,32 @@ const Profile: NextComponentType<{}, {}, PropsInterface> = ({ author }) => {
   }
 
   return (
-    <PortfolioWrap classNames={`${globalStyles.app__primarybg} ${styles.up}`} idName="home" >
-      <div className={`${styles.app__header} ${styles.home} ${globalStyles.app__primarybg} ${globalStyles.app__flex}`}>
+    <PortfolioWrap classNames={`${theme ? globalStyles.app__alternativebg : globalStyles.app__alternativebgDark} ${styles.up}`} idName="home" >
+      <div className={`${styles.app__header} ${styles.home} ${globalStyles.app__flex}`}>
         <motion.div
-          whileInView={{ y: [200, 0], opacity: [0, 1]}}
+          animate={{ y: [200, 0], opacity: [0, 1]}}
           transition={{ duration:  0.8 }}
           className={`${styles.app__headerInfo}`}
         >
-          <div className={styles.app__headerBadge}>
+          <div className={`${styles.app__headerBadge} ${theme ? styles.app__headerBadgeLight : styles.app__headerBadgeDark}`}>
             <div className={`${styles.badgeCmp} ${globalStyles.app__flex}`}>
               <span>👋</span>
               <div style={{ marginLeft: 20 }}>
-                <p className={globalStyles.pText}>Hello, I am</p>
-                <h1 className={globalStyles.headText}>Minh</h1>
+                <p className={`${globalStyles.pText} ${theme ? globalStyles.pTextLight : globalStyles.pTextDark}`}>Hello, I am</p>
+                <h1 className={`${globalStyles.headText} ${theme ? globalStyles.headTextLight : globalStyles.headTextDark}`}>Minh</h1>
               </div>
             </div>
 
             <div className={`${styles.tagCmp} ${globalStyles.app__flex}`}>
-              <p className={globalStyles.pText}>CS/Econ student @University of Arizona</p>
-              <p className={globalStyles.pText}>Web/Mobile App Developer</p>
+              <p className={`${globalStyles.pText} ${theme ? globalStyles.pTextLight : globalStyles.pTextDark}`}>CS/Econ student @University of Arizona</p>
+              <p className={`${globalStyles.pText} ${theme ? globalStyles.pTextLight : globalStyles.pTextDark}`}>Web/Mobile App Developer</p>
             </div>
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
+          initial='hidden'
+          viewport={{ once: true }}
           whileInView={{ y: [200, 0], opacity: [0, 1]}}
           transition={{ duration:  0.8, delayChildren: 0.8 }}
           className={styles.app__headerImg}
@@ -75,7 +78,7 @@ const Profile: NextComponentType<{}, {}, PropsInterface> = ({ author }) => {
         <motion.div
           variants={scaleVariants}
           whileInView={scaleVariants.whileInView}
-          className={styles.app__headerCircles}
+          className={`${styles.app__headerCircles} ${theme? styles.app__headerCirclesLight : styles.app__headerCirclesDark}`}
         >
           {[images.flutter, images.react, images.node].map((circle, index) => (
             <div className={`${styles.circleCmp} ${styles.app__flex}`} key={`circle-${index}`} >
