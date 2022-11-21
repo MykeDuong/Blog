@@ -134,19 +134,27 @@
 
 .app__anchorText {
   text-decoration: none;
-  border-bottom: 2px solid var(--lightGray-color);
   transition: 0.2s;
+  
+}
+
+.app__anchorTextLight {
+  color: var(--grayBlack-color);
+  border-bottom: 2px solid var(--lightGray-color);
+
   &:hover {
     border-bottom: 2px solid var(--gray-color);
   }
 }
 
-.app__anchorTextLight {
-  color: var(--grayBlack-color);
-}
-
 .app__anchorTextDark {
   color: var(--white-color);
+  border-bottom: 2px solid var(--gray-color);
+
+  &:hover {
+    border-bottom: 2px solid var(--lightGray-color);
+  }
+
 }
 
 @media screen and (max-width: 600px) {
