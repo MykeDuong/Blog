@@ -66,7 +66,7 @@ const Profile: NextComponentType<{}, {}, PropsInterface> = ({ author }) => {
           <motion.div
             whileInView={{scale: [0, 1]}}
             transition={{ duration:  1, ease: 'easeInOut' }}
-            className={styles.overlayCircle}
+            className={`${styles.overlayCircle} ${theme ? styles.overlayCircleLight : styles.overlayCircleDark}`}
           >
             <Image 
               src={images.circle}

@@ -212,24 +212,38 @@
 
   }
 
-  .overlayCircle {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0px;
-    top: 0;
-    z-index: 0;
-    width: 80%;
-    height: 80%;
-    
-    img {
-        width: 100%;
-    }
-  }
+  
 
 
   @media screen and (max-width: 1200px) {
       margin: 2rem 0;
       width: 100%;
+  }
+}
+
+.overlayCircle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  top: 0;
+  z-index: 0;
+  width: 80%;
+  height: 80%;
+  
+  img {
+    width: 100%;
+  }
+}
+
+.overlayCircleDark {
+  @media screen and (max-width: 768px) {
+    border-radius: 50%;
+    background-color: var(--grayBlack-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    img {
+      display: none;
+    }
   }
 }
