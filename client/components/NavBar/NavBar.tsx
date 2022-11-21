@@ -9,6 +9,7 @@ import globalStyles from '../../styles/Home.module.scss'
 import { NextComponentType } from 'next';
 import Link from 'next/link';
 import useStore from '../../store';
+import { useRouter } from 'next/router';
 
 const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -59,6 +60,7 @@ const MenuVariants = {
 const NavBar: NextComponentType = () => {
   const { theme } = useStore();
 
+  const router = useRouter()
   const [toggle, setToggle] = useState(false);
   const scrollDirection = useScrollDirection();
 
@@ -70,9 +72,9 @@ const NavBar: NextComponentType = () => {
         </div>
         <ul className={`${styles.app__navbarLinks} ${theme ? styles.app__navbarLinksLight : styles.app__navbarLinksDark}`}>
           {['home', 'portfolio', 'tags'].map((item) => (
-            <li className={`${globalStyles.pText} ${globalStyles.app__flex}`} key={`link-${item}`} >
+            <li className={`${globalStyles.pText} ${globalStyles.app__flex}`} key={`link-${item}`} onClick={() => (router.push(`/${item === 'home' ? '' : item}`))} >
               <div />
-              <Link href={`/${item === 'home' ? '' : item}`}>{item}</Link>
+              <p>{item}</p>
             </li>
           ))}
         </ul>

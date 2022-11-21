@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   position: fixed;
@@ -72,6 +72,7 @@
 
 .app__navbarLinks {
     flex: 1;
+    padding-bottom: 0.5rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -92,8 +93,7 @@
             margin-bottom: 5px;
         }
 
-        a {
-            text-decoration: none;
+        p {
 
             flex-direction: column;
             text-transform: uppercase;
@@ -114,17 +114,17 @@
 
 .app__navbarLinksLight {
     li {
-        a {
+        p {
             color: var(--gray-color);
-
-            &:hover {
-                color: var(--grayBlack-color);
-            }
         }
 
         &:hover {
             div {
                 background: var(--grayBlack-color);
+            }
+
+            p {
+                color: var(--grayBlack-color);
             }
         }
     }
@@ -132,17 +132,17 @@
 
 .app__navbarLinksDark {
     li {
-        a {
+        p {
             color: var(--gray-color);
-
-            &:hover {
-                color: var(--lightGray-color);
-            }
         }
 
         &:hover {
             div {
                 background: var(--lightGray-color);
+            }
+
+            p {
+                color: var(--lightGray-color)
             }
         }
     }
