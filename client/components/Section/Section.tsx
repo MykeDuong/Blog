@@ -10,6 +10,7 @@ import React from 'react'
 import styles from './Section.module.scss';
 import { unknownListStyleWarning } from '@portabletext/react/src/warnings';
 import useStore from '../../store';
+import Link from 'next/link';
 
 Refractor.registerLanguage(js);
 Refractor.registerLanguage(typescript);
@@ -53,8 +54,11 @@ const CodeComponent: PortableTextMarkComponent = ({children}) => {
 }
 
 const LinkComponent: PortableTextMarkComponent = ({children, value}) => {
-  const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
-  return <a href={value.href} rel={rel} className={`${styles.app__sectionLink} ${curTheme ? styles.app__sectionLinkLight : styles.app__sectionLinkDark}`}>{children}</a>
+  const rel = !value.href.startsWith('/') ? true : false;
+  if (!rel) {
+    return <Link href={value.href}><a className={`${styles.app__sectionLink} ${curTheme ? styles.app__sectionLinkLight : styles.app__sectionLinkDark}`}>{children}</a></Link>
+  }
+  return <a href={value.href} target="_blank" rel='noreferrer noopener' className={`${styles.app__sectionLink} ${curTheme ? styles.app__sectionLinkLight : styles.app__sectionLinkDark}`}>{children}</a>
 }
 
 // Code
