@@ -27,7 +27,6 @@
   }
 }
 
-
 .app__navbarLight {
     background: rgba(255, 255, 255, 0.25);
     svg {
@@ -42,27 +41,33 @@
     }
 }
 
+
 .hide {
-  top: -100px;
+    top: -100px;
 }
 
 .app__navbarLogo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
 
-    img {
-        overflow: hidden;
-        height: 3.5rem;
-        width: auto;
-        margin-left: -5rem;
-        margin-right: -30rem;
-        
-        @media screen and (min-width: 2000px) {
-            width: 180px;
-            height: 40px;
-        }
+.app__navbarLogoText {
+    font-family: var(--logo-font);
+    font-size: 1.2rem;
+    text-decoration: none;
+    
+    @media screen and (max-width: 450px) {
+        font-size: 1rem;
     }
+}
+
+.app__navbarLogoTextLight {
+    color: var(--grayBlack-color);
+}
+
+.app__navbarLogoTextDark {
+    color: var(--veryLightGray-color);
 }
 
 .app__navbarLinks {

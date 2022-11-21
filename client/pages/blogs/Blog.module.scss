@@ -19,6 +19,40 @@
   }
 }
 
+.app__blogTags {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.app__blogTagsEnd {
+  margin-top: 50px;
+  padding-top: 20px;
+}
+
+.app__blogTagsEndLight {
+  border-top: 1px solid var(--lightGray-color);
+}
+
+.app__blogTagsEndDark {
+  border-top: 1px solid var(--gray-color);
+}
+
+.tagsHeader {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.tagsHeaderLight {
+  color: var(--grayBlack-color);
+}
+
+.tagsHeaderDark {
+  color: var(--veryLightGray-color);
+}
+
 .app__blogBodyList {
   margin-top: 30px;
 

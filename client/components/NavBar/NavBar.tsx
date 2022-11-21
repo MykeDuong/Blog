@@ -66,7 +66,7 @@ const NavBar: NextComponentType = () => {
     <div style={{height: 0}}>
       <nav className={`${styles.app__navbar} ${theme ? styles.app__navbarLight : styles.app__navbarDark} ${ scrollDirection === "down" ? styles.hide : ''}`}>
         <div className={styles.app__navbarLogo}>
-          <Link href='/'><div><Image src={images.logo} alt='logo' /></div></Link>
+          <Link href='/'><a className={`${styles.app__navbarLogoText} ${theme ? styles.app__navbarLogoTextLight : styles.app__navbarLogoTextDark}`}>Minh Duong</a></Link>
         </div>
         <ul className={`${styles.app__navbarLinks} ${theme ? styles.app__navbarLinksLight : styles.app__navbarLinksDark}`}>
           {['home', 'portfolio', 'tags'].map((item) => (

@@ -10,21 +10,36 @@ import Section from '../../components/Section/Section';
 
 import globalStyles from '../../styles/Home.module.scss';
 import styles from './Blog.module.scss';
+import Button from '../../components/Button'
+import useStore from '../../store'
 
 const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }) => {
+  const { theme } = useStore();
   if (!post) {
     return (
       <h1>404 - Page Not Found</h1>
     )
   }  
 
+  console.log(post.tags)
+
   return (    
     <div className={globalStyles.app} >
       <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} mainPage={false} />
       <div className={styles.app__blogBody}>
         <div className={styles.app__blogBodyMain}>
+        <div className={styles.app__blogTags} style={{ marginTop:'50px' }}>
+            {post.tags.map((tag: {title: string}) => <Button text={tag.title} key={`tag of ${tag.title}`} type="tag" />)}
+          </div>
           <Section title='' body={post.body} slug="Introduction" />
           {post.sections ? post.sections.map((section: PostInterface, index: number) => <Section title={section.title} body={section.body} slug={section.slug.current} key={`section ${index}`} />): <></>}
+          {/* Tags */}
+          <div className={`${styles.app__blogTagsEnd} ${theme ? styles.app__blogTagsEndLight : styles.app__blogTagsEndDark}`}>
+            <p className={`${styles.tagsHeader} ${theme ? styles.tagsHeaderLight : styles.tagsHeaderDark}`}>Featured tags</p>
+            <div className={`${styles.app__blogTags}`}>
+              {post.tags.map((tag: {title: string}) => <Button text={tag.title} key={`tag of ${tag.title}`} type="tag" />)}
+            </div>
+          </div>
         </div>
         <div className={styles.app__blogBodyList}>
           <ContentList contents={post.sections} />
