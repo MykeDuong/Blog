@@ -102,7 +102,7 @@ const CodeSnippetComponent: PortableTextTypeComponent = (code: CodeInterface) =>
 }
 
 // Image
-const ImageCompoonent: PortableTextMarkComponent = ({ children, value }) => {
+const ImageCompoonent: PortableTextTypeComponent = ({ value }) => {
   console.log(value);
   return (
     <div
