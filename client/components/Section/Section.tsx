@@ -5,17 +5,20 @@ import js  from 'refractor/lang/javascript'
 import typescript from 'refractor/lang/typescript';
 import bash from 'refractor/lang/bash';
 import tsx from 'refractor/lang/tsx';
+import ts from 'refractor/lang/typescript';
 import React from 'react'
+import { urlFor } from '../../client';
 
 import styles from './Section.module.scss';
-import { unknownListStyleWarning } from '@portabletext/react/src/warnings';
 import useStore from '../../store';
 import Link from 'next/link';
+import Image from 'next/future/image';
 
 Refractor.registerLanguage(js);
 Refractor.registerLanguage(typescript);
 Refractor.registerLanguage(bash);
 Refractor.registerLanguage(tsx);
+Refractor.registerLanguage(ts)
 
 interface Props {
   title: string;
@@ -49,7 +52,7 @@ const H4Component: PortableTextBlockComponent = ({children}) => {
 }
 
 // Marks
-const CodeComponent: PortableTextMarkComponent = ({children}) => {
+const InlineCodeComponent: PortableTextMarkComponent = ({children}) => {
   return <code className={`${styles.app__sectionCode} ${curTheme ? styles.app__sectionCodeLight : styles.app__sectionCodeDark}`}>{children}</code>
 }
 
@@ -60,6 +63,7 @@ const LinkComponent: PortableTextMarkComponent = ({children, value}) => {
   }
   return <a href={value.href} target="_blank" rel='noreferrer noopener' className={`${styles.app__sectionLink} ${curTheme ? styles.app__sectionLinkLight : styles.app__sectionLinkDark}`}>{children}</a>
 }
+
 
 // Code
 interface CodeInterface {
@@ -81,6 +85,10 @@ const CodeSnippetComponent: PortableTextTypeComponent = (code: CodeInterface) =>
       language = 'javascript';
       break;
     }
+    case undefined: {
+      language = 'javascript';
+      break;
+    }
     default: {
       language = code.value.language;
     }
@@ -93,13 +101,25 @@ const CodeSnippetComponent: PortableTextTypeComponent = (code: CodeInterface) =>
   )
 }
 
+// Image
+const ImageCompoonent: PortableTextMarkComponent = ({ children, value }) => {
+  console.log(value);
+  return (
+    <div
+      className={styles.app__sectionImage}
+    >
+      <Image src={urlFor(value).url()} alt={value.alt} style={{ objectFit: "contain"}} fill />
+    </div>
+  )
+}
+
 const PortableTextComponent = {
   types: {
     code: CodeSnippetComponent,
-
+    image: ImageCompoonent,
   },
   marks: {
-    code: CodeComponent,
+    code: InlineCodeComponent,
     link: LinkComponent,
   },
   block: {

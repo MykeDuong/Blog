@@ -19,25 +19,25 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
     return (
       <h1>404 - Page Not Found</h1>
     )
-  }  
+  }
 
   console.log(post.tags)
 
-  return (    
+  return (
     <div className={globalStyles.app} >
       <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} mainPage={false} />
       <div className={styles.app__blogBody}>
         <div className={styles.app__blogBodyMain}>
-        <div className={styles.app__blogTags} style={{ marginTop:'50px' }}>
-            {post.tags.map((tag: {title: string}) => <Button text={tag.title} key={`tag of ${tag.title}`} type="tag" />)}
+          <div className={styles.app__blogTags} style={{ marginTop: '50px' }}>
+            {post.tags.map((tag: { title: string }) => <Button text={tag.title} key={`tag of ${tag.title}`} type="tag" link={`/tags/#${tag.title}`} />)}
           </div>
           <Section title='' body={post.body} slug="Introduction" />
-          {post.sections ? post.sections.map((section: PostInterface, index: number) => <Section title={section.title} body={section.body} slug={section.slug.current} key={`section ${index}`} />): <></>}
+          {post.sections ? post.sections.map((section: PostInterface, index: number) => <Section title={section.title} body={section.body} slug={section.slug.current} key={`section ${index}`} />) : <></>}
           {/* Tags */}
           <div className={`${styles.app__blogTagsEnd} ${theme ? styles.app__blogTagsEndLight : styles.app__blogTagsEndDark}`}>
             <p className={`${styles.tagsHeader} ${theme ? styles.tagsHeaderLight : styles.tagsHeaderDark}`}>Featured tags</p>
             <div className={`${styles.app__blogTags}`}>
-              {post.tags.map((tag: {title: string}) => <Button text={tag.title} key={`tag of ${tag.title}`} type="tag" />)}
+              {post.tags.map((tag: { title: string }) => <Button text={tag.title} key={`tag of ${tag.title}`} type="tag" />)}
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await client.fetch(`*[_type == "post" && defined(slug.current)][].slug.current`)
 
   return {
-    paths: paths.map((slug: string) => ({params: {slug}})),
+    paths: paths.map((slug: string) => ({ params: { slug } })),
     fallback: true,
   }
 }
@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     tags[]->,
     "mainImageUrl": mainImage.asset->url,
     author->
-  }[0]`, { slug })  
+  }[0]`, { slug })
 
   return {
     props: {

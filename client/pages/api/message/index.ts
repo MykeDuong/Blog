@@ -27,7 +27,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 
   client.create(body)
-  console.log("success")
 
   return res.status(200).json({ message: "Success"});
 

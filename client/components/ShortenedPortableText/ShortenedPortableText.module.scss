@@ -15,3 +15,32 @@
 .shortenedTextDark {
   color: var(--gray-color)
 }
+
+.link {
+  text-decoration: none;
+  color: var(--grayBlack-color);
+  border-bottom: 2px solid var(--lightGray-color);
+  transition: 0.2s;
+
+  &:hover {
+    border-bottom: 2px solid var(--gray-color);
+  }
+}
+
+.linkLight {
+  color: var(--grayBlack-color);
+  border-bottom: 2px solid var(--lightGray-color);
+
+  &:hover {
+    border-bottom: 2px solid var(--gray-color);
+  }
+}
+
+.linkDark {
+  color: var(--gray-color);
+  border-bottom: 2px solid var(--gray-color);
+
+  &:hover {
+    border-bottom: 2px solid var(--lightGray-color);
+  }
+}
