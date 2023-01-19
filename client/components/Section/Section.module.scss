@@ -82,6 +82,14 @@
   img {
     object-position: center;
   }
+
+  @media screen and (max-width: 1200px) {
+    height: 15rem;
+  }
+
+  @media screen and (min-width: 2000px) {
+    height: 40rem;
+  }
 }
 
 .app__sectionLinkLight {
