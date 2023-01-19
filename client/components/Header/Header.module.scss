@@ -1,3 +1,7 @@
+.app__headerContainer {
+  position: relative;
+}
+
 .app__header {
   margin-top: -100px;
   position: relative;
@@ -63,11 +67,9 @@
 }
 
 .app__headerWaveBox {
-  margin-top: -15vh;
-
-  @media screen and (max-width: 768px) {
-    margin-top: -5vh;
-  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /*------------------------ Wavy stuff----------------------*/
@@ -81,7 +83,7 @@
   max-height:150px;
 
   @media (max-width: 768px) {
-    height: 5vh;
+    height: 10vh;
     min-height:20px;
     max-height: 50px;
   }
