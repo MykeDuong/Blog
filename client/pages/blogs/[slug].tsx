@@ -37,7 +37,7 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
           <div className={`${styles.app__blogTagsEnd} ${theme ? styles.app__blogTagsEndLight : styles.app__blogTagsEndDark}`}>
             <p className={`${styles.tagsHeader} ${theme ? styles.tagsHeaderLight : styles.tagsHeaderDark}`}>Featured tags</p>
             <div className={`${styles.app__blogTags}`}>
-              {post.tags.map((tag: { title: string }) => <Button text={tag.title} key={`tag of ${tag.title}`} type="tag" />)}
+              {post.tags.map((tag: { title: string }) => <Button text={tag.title} key={`tag of ${tag.title}`} type="tag" link={`/tags/#${tag.title}`} />)}
             </div>
           </div>
         </div>
