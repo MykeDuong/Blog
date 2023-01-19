@@ -9,6 +9,7 @@ interface SectionInterface {
 
 export default interface PostInterface {
   title: string;
+  subtitle: string;
   tags: TagInterface[];
   slug: {
     current: string;

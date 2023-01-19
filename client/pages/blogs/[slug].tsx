@@ -25,7 +25,7 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ post }
 
   return (
     <div className={globalStyles.app} >
-      <Header title={post.title} subtitle="" mainImage={post.mainImageUrl} mainPage={false} />
+      <Header title={post.title} subtitle={post.subtitle} mainImage={post.mainImageUrl} mainPage={false} />
       <div className={styles.app__blogBody}>
         <div className={styles.app__blogBodyMain}>
           <div className={styles.app__blogTags} style={{ marginTop: '50px' }}>
