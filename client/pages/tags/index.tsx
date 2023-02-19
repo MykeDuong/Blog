@@ -28,7 +28,9 @@ const Tags: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ tags }
             <div className={`${styles.tagTitle} ${theme ? styles.tagTitleLight : styles.tagTitleDark}`} ><AiFillTag /><p>{tag.title}</p></div>
             <div className={styles.app__tagPosts}>
               {tag.posts.map(post => (
-                <Link key={`link of ${post.title}`} href={`blogs/${post.slug.current}`}><a className={`${styles.postTitle} ${theme ? styles.postTitleLight : styles.postTitleDark}`}>{post.title}</a></Link>
+                <div key={`link of ${post.title}`} >
+                  <Link href={`blogs/${post.slug.current}`}><a className={`${styles.postTitle} ${theme ? styles.postTitleLight : styles.postTitleDark}`}>{post.title}</a></Link>
+                </div>
               ))}
             </div>
           </div>)}

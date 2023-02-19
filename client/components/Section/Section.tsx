@@ -6,6 +6,7 @@ import typescript from 'refractor/lang/typescript';
 import bash from 'refractor/lang/bash';
 import tsx from 'refractor/lang/tsx';
 import ts from 'refractor/lang/typescript';
+import sql from 'refractor/lang/sql';
 import React from 'react'
 import { urlFor } from '../../client';
 
@@ -19,6 +20,7 @@ Refractor.registerLanguage(typescript);
 Refractor.registerLanguage(bash);
 Refractor.registerLanguage(tsx);
 Refractor.registerLanguage(ts)
+Refractor.registerLanguage(sql)
 
 interface Props {
   title: string;
@@ -83,6 +85,10 @@ const CodeSnippetComponent: PortableTextTypeComponent = (code: CodeInterface) =>
     }
     case "groq": {
       language = 'javascript';
+      break;
+    }
+    case "mysql": {
+      language = "sql";
       break;
     }
     case undefined: {
