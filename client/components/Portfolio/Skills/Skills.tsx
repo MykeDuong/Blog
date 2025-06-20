@@ -21,6 +21,7 @@ export interface PropsInterface {
 const Skills: NextComponentType<{}, {}, PropsInterface> = ({ skills, experiences }) => {
   const [tooltip, showTooltip] = useState(false);
   const { theme } = useStore();
+  const validExperiences = experiences.filter(experience => (experience.works))
 
   useEffect(() => {
     showTooltip(false)
@@ -54,7 +55,7 @@ const Skills: NextComponentType<{}, {}, PropsInterface> = ({ skills, experiences
           </motion.div>
 
           <motion.div className={styles.app__skillsExp}>
-              {experiences?.map((experience) => (
+              {validExperiences?.map((experience) => (
                 <motion.div
                   className={styles.app__skillsExpItem}
                   key={experience.year}
